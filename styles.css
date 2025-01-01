@@ -1,4 +1,8 @@
 /* General Styles */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -64,7 +68,8 @@ body {
     margin-bottom: 10px;
 }
 
-.personalized-greeting .greet-btn {
+.personalized-greeting .greet-btn,
+.enter-btn {
     background-color: #ff5722;
     color: white;
     font-size: 1.2rem;
@@ -75,8 +80,14 @@ body {
     transition: background-color 0.3s;
 }
 
-.personalized-greeting .greet-btn:hover {
+.personalized-greeting .greet-btn:hover,
+.enter-btn:hover {
     background-color: #ff8a50;
+}
+
+.personalized-greeting .greet-btn:focus,
+.enter-btn:focus {
+    outline: 2px solid #ff8a50;
 }
 
 .preview-sections {
@@ -102,21 +113,6 @@ body {
     font-size: 1rem;
 }
 
-.enter-btn {
-    background-color: #ff5722;
-    color: white;
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.enter-btn:hover {
-    background-color: #ff8a50;
-}
-
 /* Main Content Styles */
 #main-content {
     padding: 50px;
@@ -124,6 +120,8 @@ body {
     background-size: cover;
     color: white;
     text-align: center;
+    /* Fallback color */
+    background-color: #000;
 }
 
 #main-content h2 {
