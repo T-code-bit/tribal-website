@@ -1,3 +1,5 @@
+
+```javascript
 // Initialize GSAP animation for the welcome page content
 document.addEventListener("DOMContentLoaded", function() {
     // Fade in the welcome page elements with GSAP
@@ -39,11 +41,6 @@ document.getElementById('enter-btn').addEventListener('click', function() {
     }, 1000); // Timeout to match the fade-out transition duration
 });
 
-// Optionally, you can automatically redirect after a few seconds
-setTimeout(function() {
-    document.getElementById('enter-btn').click();
-}, 10); // Redirect after 10 seconds (adjust timing as needed)
-
 // Handle Contact Form Submission
 document.getElementById('contact-form').addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -51,23 +48,19 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
+    const response = await fetch('/contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+    });
 
-    try {
-        const response = await fetch('/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, email, message }),
-        });
-
-        const data = await response.json();
-        if (response.status === 200) {
-            alert('Message sent successfully');
-        } else {
-            alert('Error sending message: ' + data.error);
-        }
-    } catch (error) {
-        alert('Error sending message: ' + error.message);
+    const data = await response.json();
+    if (response.status === 200) {
+        alert('Message sent successfully');
+    } else {
+        alert('Error sending message');
     }
 });
+```
