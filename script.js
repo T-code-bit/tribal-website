@@ -1,66 +1,101 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const bcrypt = require('bcryptjs');
+const dotenv = require('dotenv');
 
-```javascript
-// Initialize GSAP animation for the welcome page content
-document.addEventListener("DOMContentLoaded", function() {
-    // Fade in the welcome page elements with GSAP
-    gsap.from("#welcome-message", { opacity: 0, y: -50, duration: 1 });
-    gsap.from(".welcome-content p", { opacity: 0, x: -50, duration: 1, delay: 0.5 });
-    gsap.from(".preview", { opacity: 0, scale: 0.8, stagger: 0.2, duration: 1, delay: 1 });
-    gsap.from(".enter-btn", { opacity: 0, y: 50, duration: 1, delay: 1.5 });
-});
+dotenv.config();
 
-// Handle the "Greet Me" button click
-document.getElementById('greet-btn').addEventListener('click', function() {
-    const userName = document.getElementById('user-name').value.trim();
-    
-    if (userName) {
-        // Display personalized greeting
-        const welcomeMessage = `Welcome to TRIBAL WEBSITE, ${userName}!`;
-        document.getElementById('welcome-message').textContent = welcomeMessage;
-        
-        // Animate the greeting change
-        gsap.from("#welcome-message", { opacity: 0, y: -50, duration: 1 });
-        
-        // Hide the personalized greeting input form and show the "Enter Website" button
-        document.getElementById('personalized-greeting').style.display = 'none';
-        document.getElementById('enter-btn').style.display = 'inline-block';
-    } else {
-        alert("Please enter your name!");
-    }
-});
+const app = express();
 
-// Handle the "Enter Website" button click
-document.getElementById('enter-btn').addEventListener('click', function() {
-    // Fade out the welcome page using GSAP
-    gsap.to("#welcome-page", { opacity: 0, duration: 1 });
-    
-    // After the fade-out transition, hide the welcome page and show the main content
-    setTimeout(function() {
-        document.getElementById('welcome-page').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-    }, 1000); // Timeout to match the fade-out transition duration
-});
+// Check for required environment variables
+if (!process.env.MONGO_URI || !process.env.SESSION_SECRET) {
+    console.error('Error: Missing required environment variables.');
+    process.exit(1);
+}
 
-// Handle Contact Form Submission
-document.getElementById('contact-form').addEventListener('submit', async function (e) {
-    e.preventDefault();
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+}));
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    const response = await fetch('/contact', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, message }),
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected'))
+    .catch((err) => {
+        console.error('MongoDB connection error:', err);
+        process.exit(1);
     });
 
-    const data = await response.json();
-    if (response.status === 200) {
-        alert('Message sent successfully');
-    } else {
-        alert('Error sending message');
+// User Model
+const User = mongoose.model('User', new mongoose.Schema({
+    username: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true }
+}));
+
+// Route for homepage
+app.get('/', (req, res) => {
+    res.send('Welcome to Tribal Website Backend');
+});
+
+// Route for Signup
+app.post('/signup', async (req, res) => {
+    const { username, email, password } = req.body;
+
+    try {
+        // Check if user exists
+        const userExists = await User.findOne({ email });
+        if (userExists) return res.status(400).send('User already exists');
+
+        // Hash password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Create a new user
+        const newUser = new User({ username, email, password: hashedPassword });
+        await newUser.save();
+
+        res.status(201).send('User created successfully');
+    } catch (err) {
+        console.error('Error during signup:', err);
+        res.status(500).send('Internal server error');
     }
 });
-```
+
+// Route for Login
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const user = await User.findOne({ email });
+        if (!user) return res.status(400).send('User not found');
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) return res.status(400).send('Invalid credentials');
+
+        req.session.userId = user._id;
+        res.status(200).send('Logged in successfully');
+    } catch (err) {
+        console.error('Error during login:', err);
+        res.status(500).send('Internal server error');
+    }
+});
+
+// Route for Contact Form
+app.post('/contact', (req, res) => {
+    const { name, email, message } = req.body;
+    // Save contact message to the database or send email
+    console.log('Message from contact form:', { name, email, message });
+    res.status(200).send('Message received');
+});
+
+// Start server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
