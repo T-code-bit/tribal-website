@@ -36,13 +36,13 @@ document.getElementById('enter-btn').addEventListener('click', function() {
     setTimeout(function() {
         document.getElementById('welcome-page').style.display = 'none';
         document.getElementById('main-content').style.display = 'block';
-    }, 100); // Timeout to match the fade-out transition duration
+    }, 1000); // Timeout to match the fade-out transition duration
 });
 
 // Optionally, you can automatically redirect after a few seconds
 setTimeout(function() {
     document.getElementById('enter-btn').click();
-}, 1000000); // Redirect after 10 seconds (adjust timing as needed)
+}, 10); // Redirect after 10 seconds (adjust timing as needed)
 
 // Handle Contact Form Submission
 document.getElementById('contact-form').addEventListener('submit', async function (e) {
