@@ -1,4 +1,3 @@
-```javascript
 // Initialize GSAP animation for the welcome page content
 document.addEventListener("DOMContentLoaded", function() {
     // Fade in the welcome page elements with GSAP
@@ -23,7 +22,7 @@ document.getElementById('greet-btn').addEventListener('click', function() {
         // Hide the personalized greeting input form and show the "Enter Website" button
         document.getElementById('personalized-greeting').style.display = 'none';
         document.getElementById('enter-btn').style.display = 'inline-block';
-        } else {
+    } else {
         alert("Please enter your name!");
     }
 });
@@ -53,19 +52,22 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
 
-    const response = await fetch('/contact', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
+    try {
+        const response = await fetch('/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
             },
-        body: JSON.stringify({ name, email, message }),
-    });
+            body: JSON.stringify({ name, email, message }),
+        });
 
-    const data = await response.json();
-    if (response.status === 200) {
-        alert('Message sent successfully');
-    } else {
-        alert('Error sending message');
+        const data = await response.json();
+        if (response.status === 200) {
+            alert('Message sent successfully');
+        } else {
+            alert('Error sending message: ' + data.error);
+        }
+    } catch (error) {
+        alert('Error sending message: ' + error.message);
     }
 });
-```
