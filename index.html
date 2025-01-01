@@ -1,0 +1,77 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TRIBAL WEBSITE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+
+<!-- Welcome Page (this section is displayed when the user first visits the site) -->
+<div id="welcome-page" class="welcome-page">
+    <div class="welcome-content">
+      <h1 id="welcome-message">Welcome to TRIBAL WEBSITE</h1>
+        <p>We're glad to have you here! This website is dedicated to bringing you the best in web development, UI/UX design, and SEO solutions.</p>
+        
+        <!-- Personalized Greeting Form -->
+        <div id="personalized-greeting" class="personalized-greeting">
+            <label for="user-name">What's your name?</label>
+            <input type="text" id="user-name" placeholder="Enter your name">
+            <button id="greet-btn" class="greet-btn">Greet Me</button>
+        </div>
+
+        <div class="preview-sections">
+            <div class="preview">
+                <h3>Our Services</h3>
+                <p>Explore the services we offer to help you succeed in the digital world.</p>
+            </div>
+            <div class="preview">
+                <h3>About Us</h3>
+                <p>Learn more about our mission and values.</p>
+            </div>
+            <div class="preview">
+                <h3>Contact</h3>
+                <p>Get in touch with us for inquiries or collaborations.</p>
+            </div>
+        </div>
+        <button id="enter-btn" class="enter-btn">Enter Website</button>
+    </div>
+</div>
+<div id="main-content" style="display: none;">
+    <!-- Main Website Sections -->
+    <section id="home">
+        <h2>Welcome to TRIBAL WEBSITE</h2>
+        <p>Discover the digital world with us! We specialize in web development, design, and SEO services.</p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>We offer a variety of services to help you grow your business online, including web development, UI/UX design, and SEO optimization.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>TRIBAL is a digital agency that helps businesses thrive in the digital world. We specialize in creating beautiful, functional, and responsive websites that drive results.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Your Name" required />
+            <input type="email" id="email" name="email" placeholder="Your Email" required />
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
