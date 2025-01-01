@@ -1,14 +1,25 @@
+```css
 /* General Styles */
-* {
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #121212;
     color: white;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+}
+
+.hamburger-icon {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
 }
 
 /* Welcome Page */
@@ -68,8 +79,7 @@ body {
     margin-bottom: 10px;
 }
 
-.personalized-greeting .greet-btn,
-.enter-btn {
+.personalized-greeting .greet-btn {
     background-color: #ff5722;
     color: white;
     font-size: 1.2rem;
@@ -80,14 +90,8 @@ body {
     transition: background-color 0.3s;
 }
 
-.personalized-greeting .greet-btn:hover,
-.enter-btn:hover {
+.personalized-greeting .greet-btn:hover {
     background-color: #ff8a50;
-}
-
-.personalized-greeting .greet-btn:focus,
-.enter-btn:focus {
-    outline: 2px solid #ff8a50;
 }
 
 .preview-sections {
@@ -113,6 +117,21 @@ body {
     font-size: 1rem;
 }
 
+.enter-btn {
+    background-color: #ff5722;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.enter-btn:hover {
+    background-color: #ff8a50;
+}
+
 /* Main Content Styles */
 #main-content {
     padding: 50px;
@@ -120,8 +139,6 @@ body {
     background-size: cover;
     color: white;
     text-align: center;
-    /* Fallback color */
-    background-color: #000;
 }
 
 #main-content h2 {
@@ -139,3 +156,51 @@ section {
     opacity: 0;
     transition: opacity 1s ease;
 }
+
+/* Social Media Icons */
+footer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    font-size: 2rem;
+    color: #ff5722;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #ff8a50;
+}
+
+/* Mobile Navigation Menu */
+#nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+#nav-menu a:hover {
+    color: #ff8a50;
+}
+```
