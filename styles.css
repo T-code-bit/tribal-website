@@ -1,0 +1,143 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: white;
+}
+
+/* Welcome Page */
+.welcome-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    z-index: 1000;
+    transition: opacity 1s ease;
+}
+
+.welcome-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.welcome-content h1 {
+    font-size: 2.5rem;
+    color: #ff5722;
+    margin-bottom: 20px;
+}
+
+.welcome-content p {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+.personalized-greeting {
+    margin-bottom: 20px;
+}
+
+.personalized-greeting label {
+    font-size: 1.1rem;
+    color: #ddd;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.personalized-greeting input {
+    padding: 10px;
+    font-size: 1.1rem;
+    width: 80%;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.personalized-greeting .greet-btn {
+    background-color: #ff5722;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.personalized-greeting .greet-btn:hover {
+    background-color: #ff8a50;
+}
+
+.preview-sections {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.preview {
+    background-color: rgba(255, 87, 34, 0.5);
+    padding: 15px;
+    border-radius: 8px;
+    width: 30%;
+}
+
+.preview h3 {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.preview p {
+    color: white;
+    font-size: 1rem;
+}
+
+.enter-btn {
+    background-color: #ff5722;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.enter-btn:hover {
+    background-color: #ff8a50;
+}
+
+/* Main Content Styles */
+#main-content {
+    padding: 50px;
+    background: url('https://via.placeholder.com/1500x800/000000/FFFFFF/?text=Hacker+Background') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+#main-content h2 {
+    font-size: 3rem;
+    color: #ff5722;
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+/* Smooth transition for fading welcome page */
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
