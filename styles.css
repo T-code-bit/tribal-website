@@ -134,7 +134,6 @@ body {
 /* Main Content Styles */
 #main-content {
     padding: 50px;
-    background: url('https://via.placeholder.com/1500x800/000000/FFFFFF/?text=Hacker+Background') no-repeat center center fixed;
     background-size: cover;
     color: white;
     text-align: center;
