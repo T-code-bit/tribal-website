@@ -36,7 +36,7 @@ document.getElementById('enter-btn').addEventListener('click', function() {
     setTimeout(function() {
         document.getElementById('welcome-page').style.display = 'none';
         document.getElementById('main-content').style.display = 'block';
-    }, 1000000); // Timeout to match the fade-out transition duration
+    }, 100); // Timeout to match the fade-out transition duration
 });
 
 // Optionally, you can automatically redirect after a few seconds
