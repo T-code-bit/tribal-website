@@ -39,34 +39,6 @@ document.getElementById('enter-btn').addEventListener('click', function() {
     }, 1000); // Timeout to match the fade-out transition duration
 });
 
-// Handle Contact Form Submission
-document.getElementById('contact-form').addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    try {
-        const response = await fetch('/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, email, message }),
-        });
-
-        const data = await response.json();
-        if (response.status === 200) {
-            alert('Message sent successfully');
-        } else {
-            alert('Error sending message: ' + data.error);
-        }
-    } catch (error) {
-        alert('Error sending message: ' + error.message);
-    }
-});
-
 // Toggle the navigation menu for mobile devices
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
