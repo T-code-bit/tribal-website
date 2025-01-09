@@ -4,89 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TRIBAL WEBSITE</title>
+    <title>Your Name | Personal Website</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    
-    <!-- GSAP Animation Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="scripts.js" defer></script>
+
+    <!-- Include Font Awesome for Social Media Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-
-<!-- Hamburger Menu -->
-<div id="hamburger-menu" class="hamburger-menu">
-    <div class="hamburger-icon" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-    </div>
-</div>
-
-<!-- Welcome Page (this section is displayed when the user first visits the site) -->
-<div id="welcome-page" class="welcome-page">
-    <div class="welcome-content">
-        <h1 id="welcome-message">Welcome to TRIBAL WEBSITE</h1>
-        <p>We're glad to have you here! This website is dedicated to bringing you the best in web development, UI/UX design, and SEO solutions.</p>
-        
-        <!-- Personalized Greeting Form -->
-        <div id="personalized-greeting" class="personalized-greeting">
-            <label for="user-name">What's your name?</label>
-            <input type="text" id="user-name" placeholder="Enter your name">
-            <button id="greet-btn" class="greet-btn">Greet Me</button>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">
+            <h1>Your Name</h1>
         </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="preview-sections">
-            <div class="preview">
-                <h3>Our Services</h3>
-                <p>Explore the services we offer to help you succeed in the digital world.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h2>Hello, I'm [Your Name]</h2>
+            <p>I am a passionate [Your Profession]. Welcome to my personal website!</p>
+            <button class="cta-btn">Explore My Work</button>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>Hello, I’m [Your Name], a [Your Profession] with a passion for [Your Interests]. I specialize in [Skills], and have worked on [Type of Projects]. My journey in [Your Field] started when [Describe how you got started].</p>
+        <p>Outside of work, I enjoy [Hobbies/Interests]. I believe in [Values/Philosophy].</p>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <h2>Portfolio</h2>
+        <p>Here’s a selection of my work that I’m most proud of. Click on the images to learn more about each project.</p>
+        <div class="portfolio-items">
+            <div class="portfolio-item">
+                <img src="project1.jpg" alt="Project 1">
+                <h3>Project Title 1</h3>
+                <p>Short description of the project.</p>
             </div>
-            <div class="preview">
-                <h3>About Us</h3>
-                <p>Learn more about our mission and values.</p>
+            <div class="portfolio-item">
+                <img src="project2.jpg" alt="Project 2">
+                <h3>Project Title 2</h3>
+                <p>Short description of the project.</p>
             </div>
-            <div class="preview">
-                <h3>Contact</h3>
-                <p>Get in touch with us for inquiries or collaborations.</p>
+            <div class="portfolio-item">
+                <img src="project3.jpg" alt="Project 3">
+                <h3>Project Title 3</h3>
+                <p>Short description of the project.</p>
             </div>
         </div>
-        <button id="enter-btn" class="enter-btn">Enter Website</button>
-    </div>
-</div>
-
-<!-- Main Website Content (hidden initially and shown after the welcome page) -->
-<div id="main-content" style="display: none;">
-    <!-- Main Website Sections -->
-    <section id="home">
-        <h2>Welcome to TRIBAL WEBSITE</h2>
-        <p>Discover the digital world with us! We specialize in web development, design, and SEO services.</p>
     </section>
 
-    <section id="services">
-        <h2>Our Services</h2>
-        <p>We offer a variety of services to help you grow your business online, including web development, UI/UX design, and SEO optimization.</p>
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <h2>Blog</h2>
+        <p>Check out my latest blog posts!</p>
+        <div class="blog-posts">
+            <div class="post">
+                <h3>Blog Post Title 1</h3>
+                <p>Short excerpt from the blog post...</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="post">
+                <h3>Blog Post Title 2</h3>
+                <p>Short excerpt from the blog post...</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
     </section>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>TRIBAL is a digital agency that helps businesses thrive in the digital world. We specialize in creating beautiful, functional, and responsive websites that drive results.</p>
-    </section> 
-    
-     
+    <!-- Resume Section -->
+    <section id="resume" class="section">
+        <h2>Resume</h2>
+        <p>You can download my full resume here: <a href="resume.pdf" download>Download Resume</a></p>
+        <ul>
+            <li>Education: [Your Degree, School]</li>
+            <li>Experience: [Your Job Title, Company]</li>
+            <li>Skills: [List of Skills]</li>
+            <li>Awards: [Any Achievements]</li>
+        </ul>
     </section>
 
-    <!-- Social Media Links (Footer) -->
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <p>If you want to get in touch, feel free to send me a message!</p>
+        <form action="#" method="post">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="cta-btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer with Social Media Links -->
     <footer>
-        <div class="social-media">
-            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-            <a href="https://www.tiktok.com" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/phone_number" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-            <a href="tel:+1234567890" class="social-icon"><i class="fas fa-phone-alt"></i></a>
+        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+        <div class="socials">
+            <!-- Social Media Icons -->
+            <a href="https://twitter.com" target="_blank" class="social-icon">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="social-icon">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="social-icon">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://pinterest.com" target="_blank" class="social-icon">
+                <i class="fab fa-pinterest"></i>
+            </a>
+            <a href="https://snapchat.com" target="_blank" class="social-icon">
+                <i class="fab fa-snapchat-ghost"></i>
+            </a>
+            <a href="https://tiktok.com" target="_blank" class="social-icon">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://reddit.com" target="_blank" class="social-icon">
+                <i class="fab fa-reddit"></i>
+            </a>
+            <a href="https://skype.com" target="_blank" class="social-icon">
+                <i class="fab fa-skype"></i>
+            </a>
+            <a href="https://wa.me" target="_blank" class="social-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://medium.com" target="_blank" class="social-icon">
+                <i class="fab fa-medium"></i>
+            </a>
+            <a href="https://tumblr.com" target="_blank" class="social-icon">
+                <i class="fab fa-tumblr"></i>
+            </a>
+            <a href="https://discord.com" target="_blank" class="social-icon">
+                <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://vimeo.com" target="_blank" class="social-icon">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            <a href="https://dribbble.com" target="_blank" class="social-icon">
+                <i class="fab fa-dribbble"></i>
+            </a>
+            <a href="https://behance.net" target="_blank" class="social-icon">
+                <i class="fab fa-behance"></i>
+            </a>
+            <a href="https://steamcommunity.com" target="_blank" class="social-icon">
+                <i class="fab fa-steam"></i>
+            </a>
+            <a href="https://flickr.com" target="_blank" class="social-icon">
+                <i class="fab fa-flickr"></i>
+            </a>
         </div>
     </footer>
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
