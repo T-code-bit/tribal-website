@@ -1,181 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Your Name | Personal Website</title>
+    <title>Interactive Fun Website</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
-
-    <!-- Include Font Awesome for Social Media Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
+
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <div class="logo">
-            <h1>Your Name</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="main-container">
+        <!-- Parallax Section -->
+        <section class="parallax" id="parallaxSection">
+            <h1>Welcome to the Interactive Fun Website!</h1>
+            <p>Click the button below to make some magic happen!</p>
+            <button id="magicButton">Click Me!</button>
+        </section>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-text">
-            <h2>Hello, I'm [Your Name]</h2>
-            <p>I am a passionate [Your Profession]. Welcome to my personal website!</p>
-            <button class="cta-btn">Explore My Work</button>
-        </div>
-    </section>
+        <!-- About Us Section -->
+        <section class="about-us-section">
+            <h2>About Us</h2>
+            <p>We are a team of passionate creators who love to bring fun and interactive experiences to the web. Our mission is to create exciting, engaging, and user-friendly websites that entertain and inform!</p>
+        </section>
 
-    <!-- About Me Section -->
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>Hello, I’m [Your Name], a [Your Profession] with a passion for [Your Interests]. I specialize in [Skills], and have worked on [Type of Projects]. My journey in [Your Field] started when [...]</p>
-        <p>Outside of work, I enjoy [Hobbies/Interests]. I believe in [Values/Philosophy].</p>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section">
-        <h2>Portfolio</h2>
-        <p>Here’s a selection of my work that I’m most proud of. Click on the images to learn more about each project.</p>
-        <div class="portfolio-items">
-            <div class="portfolio-item">
-                <img src="project1.jpg" alt="Project 1">
-                <h3>Project Title 1</h3>
-                <p>Short description of the project.</p>
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-item">
+                <h3>What is this website about?</h3>
+                <p>This website is designed to bring fun, interactive experiences to users, featuring games, dynamic content, and social media integration!</p>
             </div>
-            <div class="portfolio-item">
-                <img src="project2.jpg" alt="Project 2">
-                <h3>Project Title 2</h3>
-                <p>Short description of the project.</p>
+            <div class="faq-item">
+                <h3>How can I contact you?</h3>
+                <p>You can contact us through the "Contact Us" section below or reach us on our social media channels.</p>
             </div>
-            <div class="portfolio-item">
-                <img src="project3.jpg" alt="Project 3">
-                <h3>Project Title 3</h3>
-                <p>Short description of the project.</p>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section class="contact-us-section">
+            <h2>Contact Us</h2>
+            <p>Have questions or suggestions? We'd love to hear from you!</p>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <!-- Newsletter Signup Section -->
+        <section class="newsletter-section">
+            <h2>Stay Updated!</h2>
+            <p>Sign up for our newsletter and never miss out on the latest updates, fun activities, and news.</p>
+            <form id="newsletterForm">
+                <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <!-- Social Media Section -->
+        <section class="social-media-section">
+            <h2>Follow Us on Social Media!</h2>
+            <div class="social-icons">
+                <a href="https://wa.me/yourphonenumber" target="_blank" class="social-icon whatsapp" title="WhatsApp">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                </a>
+                <a href="https://twitter.com/yourusername" target="_blank" class="social-icon twitter" title="Twitter">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_as_of_2021.svg" alt="Twitter">
+                </a>
+                <a href="https://www.tiktok.com/@yourusername" target="_blank" class="social-icon tiktok" title="TikTok">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/TikTok_logo_2018.svg" alt="TikTok">
+                </a>
+                <a href="https://www.instagram.com/yourusername" target="_blank" class="social-icon instagram" title="Instagram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+                </a>
+                <a href="https://www.youtube.com/c/yourchannel" target="_blank" class="social-icon youtube" title="YouTube">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+                </a>
             </div>
+        </section>
+
+        <!-- Background Music Section -->
+        <section class="music-section">
+            <h2>Enjoy Some Music 🎶</h2>
+            <audio id="backgroundMusic" controls loop>
+                <source src="https://www.bensound.com/bensound-music/bensound-buddy.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+    </div>
+
+    <!-- Modal Section for Fun Facts -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Fun Fact!</h2>
+            <p>Did you know? The Eiffel Tower can grow by up to 6 inches during the summer due to the expansion of iron.</p>
         </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="section">
-        <h2>Blog</h2>
-        <p>Check out my latest blog posts!</p>
-        <div class="blog-posts">
-            <div class="post">
-                <h3>Blog Post Title 1</h3>
-                <p>Short excerpt from the blog post...</p>
-                <a href="#">Read More</a>
-            </div>
-            <div class="post">
-                <h3>Blog Post Title 2</h3>
-                <p>Short excerpt from the blog post...</p>
-                <a href="#">Read More</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Resume Section -->
-    <section id="resume" class="section">
-        <h2>Resume</h2>
-        <p>You can download my full resume here: <a href="resume.pdf" download>Download Resume</a></p>
-        <ul>
-            <li>Education: [Your Degree, School]</li>
-            <li>Experience: [Your Job Title, Company]</li>
-            <li>Skills: [List of Skills]</li>
-            <li>Awards: [Any Achievements]</li>
-        </ul>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <h2>Contact Me</h2>
-        <p>If you want to get in touch, feel free to send me a message!</p>
-        <form action="#" method="post">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="cta-btn">Send Message</button>
-        </form>
-    </section>
-
-    <!-- Footer with Social Media Links -->
-    <footer>
-        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
-        <div class="socials">
-            <!-- Social Media Icons -->
-            <a href="https://twitter.com" target="_blank" class="social-icon">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://linkedin.com" target="_blank" class="social-icon">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com" target="_blank" class="social-icon">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://instagram.com" target="_blank" class="social-icon">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://facebook.com" target="_blank" class="social-icon">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://youtube.com" target="_blank" class="social-icon">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://pinterest.com" target="_blank" class="social-icon">
-                <i class="fab fa-pinterest"></i>
-            </a>
-            <a href="https://snapchat.com" target="_blank" class="social-icon">
-                <i class="fab fa-snapchat-ghost"></i>
-            </a>
-            <a href="https://tiktok.com" target="_blank" class="social-icon">
-              <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="https://reddit.com" target="_blank" class="social-icon">
-                <i class="fab fa-reddit"></i>
-            </a>
-            <a href="https://skype.com" target="_blank" class="social-icon">
-                <i class="fab fa-skype"></i>
-            </a>
-            <a href="https://wa.me" target="_blank" class="social-icon">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://medium.com" target="_blank" class="social-icon">
-                <i class="fab fa-medium"></i>
-            </a>
-            <a href="https://tumblr.com" target="_blank" class="social-icon">
-                <i class="fab fa-tumblr"></i>
-            </a>
-            <a href="https://discord.com" target="_blank" class="social-icon">
-                <i class="fab fa-discord"></i>
-            </a>
-            <a href="https://vimeo.com" target="_blank" class="social-icon">
-                <i class="fab fa-vimeo"></i>
-            </a>
-            <a href="https://dribbble.com" target="_blank" class="social-icon">
-                <i class="fab fa-dribbble"></i>
-            </a>
-            <a href="https://behance.net" target="_blank" class="social-icon">
-                <i class="fab fa-behance"></i>
-            </a>
-            <a href="https://steamcommunity.com" target="_blank" class="social-icon">
-                <i class="fab fa-steam"></i>
-            </a>
-            <a href="https://flickr.com" target="_blank" class="social-icon">
-                <i class="fab fa-flickr"></i>
-            </a>
-        </div>
-    </footer>
+    </div>
 </body>
+
 </html>
