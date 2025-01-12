@@ -113,33 +113,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const options = { timeZone: 'Africa/Nairobi', hour12: false };
         const timeString = now.toLocaleTimeString('en-US', options);
         const dateString = now.toLocaleDateString('en-US', options);
-        clock.textContent = `TRIBAL: ${dateString} ${timeString}`;
+        clock.textContent = `WELCOME TO TRIBAL WEBSITE THE TIME IS: ${dateString} ${timeString}`;
     }
 
     setInterval(updateClock, 1000);
     updateClock(); // Initial call to display the clock immediately
-
-    // Modal Popup
-    const modal = document.getElementById('modal');
-    const modalContent = document.querySelector('.modal-content');
-    const closeModal = document.querySelector('.close');
-
-    document.querySelectorAll('.gallery-item').forEach(item => {
-        item.addEventListener('click', () => {
-            modal.style.display = 'block';
-            modalContent.querySelector('p').textContent = item.alt;
-        });
-    });
-
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
 
     // Form Validation
     const contactForm = document.getElementById('contact-form');
