@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const options = { timeZone: 'Africa/Nairobi', hour12: false };
         const timeString = now.toLocaleTimeString('en-US', options);
         const dateString = now.toLocaleDateString('en-US', options);
-        clock.textContent = `WELCOME TO TRIBAL WEBSITE THE TIME IS: ${dateString} ${timeString}`;
+        clock.textContent = `TRIBAL: ${dateString} ${timeString}`;
     }
 
     setInterval(updateClock, 1000);
