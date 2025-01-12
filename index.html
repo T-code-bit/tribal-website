@@ -19,11 +19,11 @@
         <nav>
             <div class="logo">My Website</div>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#education" class="nav-link" data-section="education">Education</a></li>
+                <li><a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a></li>
+                <li><a href="#blog" class="nav-link" data-section="blog">Blog</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -35,10 +35,68 @@
                 <p>Discover my journey, projects, and thoughts!</p>
             </div>
         </section>
-        <!-- Other sections go here -->
+
+        <section id="about" class="content-section">
+            <h2>About Me</h2>
+            <p>Hi, I'm [Your Name], a passionate web developer with a love for creating dynamic and responsive websites. I have a background in [Your Background] and enjoy working with technologies like HTML, CSS, JavaScript, and more.</p>
+        </section>
+
+        <section id="education" class="content-section">
+            <h2>Education</h2>
+            <p>I hold a degree in [Your Degree] from [Your University]. My education has provided me with a strong foundation in [Relevant Skills or Knowledge].</p>
+        </section>
+
+        <section id="portfolio" class="content-section">
+            <h2>Portfolio</h2>
+            <p>Here are some of my recent projects:</p>
+            <ul>
+                <li><a href="[Project Link 1]" target="_blank">Project 1</a> - Description of Project 1</li>
+                <li><a href="[Project Link 2]" target="_blank">Project 2</a> - Description of Project 2</li>
+                <li><a href="[Project Link 3]" target="_blank">Project 3</a> - Description of Project 3</li>
+            </ul>
+        </section>
+
+        <section id="blog" class="content-section">
+            <h2>Blog</h2>
+            <p>Check out my latest blog posts:</p>
+            <ul>
+                <li><a href="[Blog Post Link 1]" target="_blank">Blog Post 1</a> - Brief description of Blog Post 1</li>
+                <li><a href="[Blog Post Link 2]" target="_blank">Blog Post 2</a> - Brief description of Blog Post 2</li>
+                <li><a href="[Blog Post Link 3]" target="_blank">Blog Post 3</a> - Brief description of Blog Post 3</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2>Contact</h2>
+            <p>If you'd like to get in touch, feel free to reach out via email at <a href="mailto:your.email@example.com">your.email@example.com</a> or connect with me on social media:</p>
+            <div class="social-icons">
+                <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/yourprofile" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/yourprofile" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/yourphonenumber" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </section>
     </main>
 
+    <footer>
+        <p>&copy; <span id="current-year"></span> My Personal Website. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#about" class="nav-link" data-section="about">About</a> |
+            <a href="#education" class="nav-link" data-section="education">Education</a> |
+            <a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a> |
+            <a href="#blog" class="nav-link" data-section="blog">Blog</a> |
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
+    <script>
+        // Set the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
