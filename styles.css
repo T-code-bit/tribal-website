@@ -1,235 +1,199 @@
-/* Reset some default styles */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    text-align: center;
+    font-family: 'Poppins', sans-serif;
     color: #333;
-    overflow-x: hidden;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    margin: 0;
+    line-height: 1.6; /* Improved readability */
 }
 
-/* Parallax Section */
-.parallax {
-    background-image: url('https://via.placeholder.com/1920x1080');
-    background-attachment: fixed;
-    background-size: cover;
-    height: 100vh;
+/* Header */
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.8em;
+    font-family: 'Caveat', cursive;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px; /* Better spacing between nav items */
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added color transition */
+}
+
+.nav-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #000; /* Change text color on hover for better contrast */
+}
+
+/* Hero Section */
+#hero {
+    display: flex;
     justify-content: center;
-    color: white;
-    padding: 20px;
+    align-items: center;
+    height: 100vh;
     text-align: center;
-    position: relative;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better text visibility */
+    padding: 20px; /* Added padding for better spacing */
 }
 
-.parallax h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    animation: fadeIn 2s ease;
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow for better readability */
 }
 
-.parallax p {
-    font-size: 1.5rem;
+.hero-content p {
+    font-size: 1.2em;
+    max-width: 600px; /* Limit the width of the paragraph for better readability */
+    margin: 0 auto; /* Center the paragraph */
 }
 
-button {
-    background-color: #ff7e5f;
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* Changed to relative to avoid overlap issues */
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+footer .social-icons {
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #ff9a9e; /* Change icon color on hover */
+}
+
+/* Animation for background gradient */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
     border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
     cursor: pointer;
+    display: none;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.back-to-top.show {
+    display: block;
+    opacity: 1;
+}
+
+.back-to-top:hover {
+    background-color: #555;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #333;
+    color: #fff;
+}
+
+body.dark-mode header {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .nav-links li a {
+    color: #fff;
+}
+
+body.dark-mode .nav-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #000;
+}
+
+body.dark-mode footer {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
     border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #feb47b;
+.dark-mode-toggle:hover {
+    background-color: #555;
 }
 
-/* About Us Section */
-.about-us-section {
-    margin: 40px 0;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.about-us-section h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.about-us-section p {
-    font-size: 1.2rem;
-    color: #555;
-}
-
-/* FAQ Section */
-.faq-section {
-    margin: 40px 0;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.faq-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.faq-item {
-    margin-bottom: 20px;
-}
-
-.faq-item h3 {
-    font-size: 1.5rem;
-    color: #333;
-}
-
-.faq-item p {
-    font-size: 1.1rem;
-    color: #555;
-}
-
-/* Contact Us Section */
-.contact-us-section {
-    margin: 40px 0;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-us-section h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-input, textarea {
-    padding: 10px;
-    font-size: 1rem;
+/* Clock */
+.clock {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px 15px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-/* Newsletter Section */
-.newsletter-section {
-    margin: 40px 0;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.newsletter-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.newsletter-section form {
-    display: flex;
-    justify-content: center;
-}
-
-.newsletter-section input {
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-right: 10px;
-}
-
-.newsletter-section button {
-    background-color: #ff7e5f;
-    color: white;
-    padding: 12px 20px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-}
-
-.newsletter-section button:hover {
-    background-color: #feb47b;
-}
-
-/* Social Media Section */
-.social-media-section {
-    margin: 40px 0;
-}
-
-.social-media-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.social-icon {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
-}
-
-.social-icon img {
-    width: 100%;
-    height: auto;
-}
-
-.social-icon:hover {
-    transform: scale(1.1);
-}
-
-/* Music Section */
-.music-section {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-audio {
-    width: 100%;
-    border-radius: 5px;
+    font-size: 1em;
+    z-index: 1000;
 }
