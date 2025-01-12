@@ -118,4 +118,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setInterval(updateClock, 1000);
     updateClock(); // Initial call to display the clock immediately
+
+    // Modal Popup
+    const modal = document.getElementById('modal');
+    const modalContent = document.querySelector('.modal-content');
+    const closeModal = document.querySelector('.close');
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', () => {
+            modal.style.display = 'block';
+            modalContent.querySelector('p').textContent = item.alt;
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Form Validation
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (name === '' || email === '' || message === '') {
+            alert('Please fill in all fields.');
+        } else {
+            alert('Message sent successfully!');
+            contactForm.reset();
+        }
+    });
 });
