@@ -76,6 +76,15 @@ header .logo {
     margin: 0 auto; /* Center the paragraph */
 }
 
+/* Content Sections */
+.content-section {
+    padding: 40px 20px; /* Added padding for better spacing */
+    margin-top: 20px; /* Added margin to separate sections */
+    background: rgba(255, 255, 255, 0.8); /* Light background for better readability */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
 /* Footer */
 footer {
     background-color: rgba(0, 0, 0, 0.7);
