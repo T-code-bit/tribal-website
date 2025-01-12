@@ -139,6 +139,72 @@ document.addEventListener('DOMContentLoaded', function () {
             contactForm.reset();
         }
     });
+
+    // AI Assistant Implementation
+    const aiButton = document.createElement('button');
+    aiButton.innerHTML = '<i class="fas fa-robot"></i>';
+    aiButton.classList.add('ai-assistant-button');
+    document.body.appendChild(aiButton);
+
+    const aiChat = document.createElement('div');
+    aiChat.classList.add('ai-chat');
+    aiChat.innerHTML = `
+        <div class="ai-chat-header">
+            Website Assistant
+            <button class="ai-close">&times;</button>
+        </div>
+        <div class="ai-chat-messages"></div>
+        <input type="text" class="ai-chat-input" placeholder="Ask me about the website...">
+    `;
+    aiChat.style.display = 'none';
+    document.body.appendChild(aiChat);
+
+    const responses = {
+        'home': 'You can find our main content in the Hero section at the top of the page.',
+        'about': 'The About section contains information about our organization and mission.',
+        'contact': 'You can reach us through the Contact form at the bottom of the page.',
+        'help': 'I can help you navigate the website. Try asking about specific sections like "home", "about", or "contact".',
+        'dark mode': 'You can toggle dark mode using the moon/sun icon in the top right corner.',
+        'default': 'I\'m here to help! Ask me about any section of the website.'
+    };
+
+    aiButton.addEventListener('click', () => {
+        aiChat.style.display = aiChat.style.display === 'none' ? 'flex' : 'none';
+    });
+
+    const closeButton = aiChat.querySelector('.ai-close');
+    closeButton.addEventListener('click', () => {
+        aiChat.style.display = 'none';
+    });
+
+    const chatMessages = aiChat.querySelector('.ai-chat-messages');
+    const chatInput = aiChat.querySelector('.ai-chat-input');
+
+    function addMessage(message, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('ai-message', isUser ? 'user-message' : 'assistant-message');
+        messageDiv.textContent = message;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && chatInput.value.trim() !== '') {
+            const userMessage = chatInput.value.trim().toLowerCase();
+            addMessage(chatInput.value, true);
+            
+            let response = responses.default;
+            Object.keys(responses).forEach(key => {
+                if (userMessage.includes(key)) {
+                    response = responses[key];
+                }
+            });
+            
+            setTimeout(() => addMessage(response), 500);
+            chatInput.value = '';
+        }
+    });
+
+    // Add initial greeting
+    setTimeout(() => addMessage('Hello! How can I help you navigate the website?'), 1000);
 });
-
-
