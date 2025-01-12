@@ -1,59 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome - Tribal Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Personal website showcasing my portfolio, blog, and social media links.">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Caveat:wght@400;600&family=Roboto:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* Custom cursor */
         body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f5f5;
+            cursor: url('custom-cursor.png'), auto;
+        }
+
+        /* Back-to-top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+            z-index: 9999;
+        }
+
+        #preloader .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #333;
+            animation: spin 1s ease infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Welcome page styles */
+        .welcome-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            text-align: center;
         }
 
         .welcome-container {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            color: white;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
+        .welcome-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
-        p {
+        .welcome-text {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #cccccc;
+            margin-bottom: 30px;
         }
 
         .enter-button {
             display: inline-block;
-            padding: 1rem 2rem;
-            background-color: #4a90e2;
-            color: white;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
             text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         .enter-button:hover {
-            background-color: #357abd;
-            transform: scale(1.05);
+            background-color: #555;
         }
+
+        /* Clock styles */
+        #clock {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="welcome-page">
+    <div class="welcome-container">
+        <h1 class="welcome-title">Welcome to Tribal Website</h1>
+        <p class="welcome-text">Experience the journey with us</p>
+        <a href="main.html" class="enter-button">Enter Site</a>
+    </div>
+    <div id="clock"></div>
+
+    <script>
+        function updateClock() {
+            const clock = document.getElementById('clock');
+            const now = new Date();
+            clock.textContent = now.toLocaleTimeString();
+        }
+
+        // Update clock every second
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call
+    </script>
+</body>
+
+</html>
     </style>
 </head>
 <body>
