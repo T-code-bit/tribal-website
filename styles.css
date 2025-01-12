@@ -181,7 +181,7 @@ body.dark-mode footer {
 }
 
 .dark-mode-toggle {
-    position: fixed;
+    position: top;
     bottom: 20px;
     left: 20px;
     background-color: #333;
@@ -200,7 +200,7 @@ body.dark-mode footer {
 
 /* Clock */
 .clock {
-    position: fixed;
+    position: bottom;
     top: 20px;
     right: 20px;
     background-color: rgba(0, 0, 0, 0.7);
