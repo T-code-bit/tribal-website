@@ -69,6 +69,15 @@
         <section id="contact" class="content-section">
             <h2>Contact</h2>
             <p>If you'd like to get in touch, feel free to reach out via email at <a href="mailto:your.email@example.com">your.email@example.com</a> or connect with me on social media:</p>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
             <div class="social-icons">
                 <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -91,6 +100,24 @@
             <a href="#contact" class="nav-link" data-section="contact">Contact</a>
         </div>
     </footer>
+
+    <!-- Modal Popup -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+    </div>
+
+    <!-- Image Gallery -->
+    <section id="gallery" class="content-section">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <img src="image1.jpg" alt="Image 1" class="gallery-item">
+            <img src="image2.jpg" alt="Image 2" class="gallery-item">
+            <img src="image3.jpg" alt="Image 3" class="gallery-item">
+        </div>
+    </section>
 
     <script src="script.js"></script>
     <script>
