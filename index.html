@@ -12,131 +12,149 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Caveat:wght@400;600&family=Roboto:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* Custom cursor */
-        body {
-            cursor: url('custom-cursor.png'), auto;
-        }
-
-        /* Back-to-top button */
-        #back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        /* Preloader */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        #preloader .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border-left-color: #333;
-            animation: spin 1s ease infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Welcome page styles */
-        .welcome-page {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-
-        .welcome-container {
-            max-width: 600px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
-        .welcome-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .welcome-text {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        .enter-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .enter-button:hover {
-            background-color: #555;
-        }
-
-        /* Clock styles */
-        #clock {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5rem;
-            color: #333;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
 </head>
 
-<body class="welcome-page">
-    <div class="welcome-container">
-        <h1 class="welcome-title">Welcome to Tribal Website</h1>
-        <p class="welcome-text">Experience the journey with us</p>
-        <a href="main.html" class="enter-button">Enter Site</a>
-    </div>
-    <div id="clock"></div>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Website</div>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+                <li><a href="#education" class="nav-link" data-section="education">Education</a></li>
+                <li><a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a></li>
+                <li><a href="#blog" class="nav-link" data-section="blog">Blog</a></li>
+                <li><a href="#testimonials" class="nav-link" data-section="testimonials">Testimonials</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Welcome to My Personal Website</h1>
+                <p>Discover my journey, projects, and thoughts!</p>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>About Me</h2>
+            <p>Hi, I'm [Your Name], a passionate web developer with a love for creating dynamic and responsive websites. I have a background in [Your Background] and enjoy working with technologies like HTML, CSS, JavaScript, and more.</p>
+        </section>
+
+        <section id="skills" class="content-section">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML & CSS</li>
+                <li>JavaScript & jQuery</li>
+                <li>React & Angular</li>
+                <li>Node.js & Express</li>
+                <li>Python & Django</li>
+                <li>SQL & NoSQL Databases</li>
+                <li>Git & GitHub</li>
+                <li>Responsive Design</li>
+            </ul>
+        </section>
+
+        <section id="experience" class="content-section">
+            <h2>Experience</h2>
+            <p><strong>Web Developer at XYZ Company</strong> (Jan 2020 - Present)</p>
+            <ul>
+                <li>Developed and maintained the company website using HTML, CSS, and JavaScript.</li>
+                <li>Collaborated with the design team to create a responsive and user-friendly interface.</li>
+                <li>Implemented new features and optimized existing ones for better performance.</li>
+            </ul>
+            <p><strong>Frontend Developer at ABC Corp</strong> (Jun 2018 - Dec 2019)</p>
+            <ul>
+                <li>Worked on various frontend projects using React and Angular.</li>
+                <li>Ensured cross-browser compatibility and optimized web applications for mobile devices.</li>
+                <li>Participated in code reviews and provided constructive feedback to team members.</li>
+            </ul>
+        </section>
+
+        <section id="education" class="content-section">
+            <h2>Education</h2>
+            <p>I hold a degree in [Your Degree] from [Your University]. My education has provided me with a strong foundation in [Relevant Skills or Knowledge].</p>
+        </section>
+
+        <section id="portfolio" class="content-section">
+            <h2>Portfolio</h2>
+            <p>Here are some of my recent projects:</p>
+            <ul>
+                <li><a href="[Project Link 1]" target="_blank">Project 1</a> - Description of Project 1</li>
+                <li><a href="[Project Link 2]" target="_blank">Project 2</a> - Description of Project 2</li>
+                <li><a href="[Project Link 3]" target="_blank">Project 3</a> - Description of Project 3</li>
+            </ul>
+        </section>
+
+        <section id="blog" class="content-section">
+            <h2>Blog</h2>
+            <p>Check out my latest blog posts:</p>
+            <ul>
+                <li><a href="[Blog Post Link 1]" target="_blank">Blog Post 1</a> - Brief description of Blog Post 1</li>
+                <li><a href="[Blog Post Link 2]" target="_blank">Blog Post 2</a> - Brief description of Blog Post 2</li>
+                <li><a href="[Blog Post Link 3]" target="_blank">Blog Post 3</a> - Brief description of Blog Post 3</li>
+            </ul>
+        </section>
+
+        <section id="testimonials" class="content-section">
+            <h2>Testimonials</h2>
+            <p>Here's what people are saying about me:</p>
+            <blockquote>
+                <p>"[Your Name] is an exceptional developer with a keen eye for detail. Their work on our project was outstanding!"</p>
+                <footer>- Client Name, Company</footer>
+            </blockquote>
+            <blockquote>
+                <p>"Working with [Your Name] was a pleasure. They delivered high-quality work on time and exceeded our expectations."</p>
+                <footer>- Client Name, Company</footer>
+            </blockquote>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2>Contact</h2>
+            <p>If you'd like to get in touch, feel free to reach out via email at <a href="mailto:your.email@example.com">your.email@example.com</a> or connect with me on social media:</p>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <div class="social-icons">
+                <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/yourprofile" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/yourprofile" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/yourphonenumber" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/yourprofile" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> My Personal Website. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#about" class="nav-link" data-section="about">About</a> |
+            <a href="#skills" class="nav-link" data-section="skills">Skills</a> |
+            <a href="#experience" class="nav-link" data-section="experience">Experience</a> |
+            <a href="#education" class="nav-link" data-section="education">Education</a> |
+            <a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a> |
+            <a href="#blog" class="nav-link" data-section="blog">Blog</a> |
+            <a href="#testimonials" class="nav-link" data-section="testimonials">Testimonials</a> |
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
     <script>
-        function updateClock() {
-            const clock = document.getElementById('clock');
-            const now = new Date();
-            clock.textContent = now.toLocaleTimeString();
-        }
-
-        // Update clock every second
-        setInterval(updateClock, 1000);
-        updateClock(); // Initial call
+        // Set the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 
