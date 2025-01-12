@@ -78,13 +78,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Dark Mode Toggle
-    const darkModeToggle = document.createElement('button');
-    darkModeToggle.textContent = 'Toggle Dark Mode';
-    darkModeToggle.classList.add('dark-mode-toggle');
-    document.body.appendChild(darkModeToggle);
+    const darkModeToggle = document.querySelector('.dark-mode-toggle');
+    const darkModeIcon = darkModeToggle.querySelector('i');
 
     darkModeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            darkModeIcon.classList.remove('fa-moon');
+            darkModeIcon.classList.add('fa-sun');
+        } else {
+            darkModeIcon.classList.remove('fa-sun');
+            darkModeIcon.classList.add('fa-moon');
+        }
     });
 
     // Typing Effect
