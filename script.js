@@ -1,208 +1,99 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+document.addEventListener('DOMContentLoaded', function () {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetElement = document.querySelector(this.getAttribute('href'));
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
-/* Body and Main Font */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-}
+    // Greeting based on time
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+        const timeNow = new Date().getHours();
+        const greeting = document.createElement('p');
+        greeting.style.fontSize = '1.4em';
+        greeting.style.color = '#fff';
 
-/* Header Styling */
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        if (timeNow < 12) {
+            greeting.textContent = 'Good Morning! Ready to explore?';
+        } else if (timeNow < 18) {
+            greeting.textContent = 'Good Afternoon! Let\'s dive in!';
+        } else {
+            greeting.textContent = 'Good Evening! Take a look around!';
+        }
 
-header .logo h1 {
-    font-size: 2.5em;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-nav ul li a:hover {
-    color: #ff7f50;
-}
-
-/* Hero Section */
-.hero {
-background-image: url('hero-image.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.hero-text h2 {
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-
-.hero-text p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.cta-btn {
-    padding: 15px 30px;
-    background-color: #ff7f50;
-    border: none;
-    color: white;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.cta-btn:hover {
-    background-color: #ff6347;
-}
-
-/* Section Styling */
-.section {
-    padding: 50px 20px;
-    margin: 30px 0;
-}
-
-.section h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-/* Portfolio */
-.portfolio-items {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.portfolio-item {
-    width: 30%;
-    text-align: center;
-}
-
-.portfolio-item img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Blog Section */
-.blog-posts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.post {
-    width: 48%;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.post h3 {
-    margin-bottom: 10px;
-}
-
-/* Contact Form */
-form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-form button {
-    padding: 15px 30px;
-    background-color: #ff7f50;
-    border: none;
-    color: white;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-form button:hover {
-    background-color: #ff6347;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-}
-
-footer .socials {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-footer .socials a {
-    margin: 0 15px;
-    color: white;
-    font-size: 2em;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer .socials a:hover {
-    color: #ff7f50;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .portfolio-items {
-        flex-direction: column;
-        align-items: center;
+        const heroContent = heroSection.querySelector('.hero-content');
+        if (heroContent) {
+            heroContent.appendChild(greeting);
+        }
     }
 
-    .blog-posts {
-        flex-direction: column;
+    // Back to Top Button
+    const backToTopButton = document.createElement('button');
+    backToTopButton.textContent = '↑';
+    backToTopButton.classList.add('back-to-top');
+    document.body.appendChild(backToTopButton);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.createElement('button');
+    darkModeToggle.textContent = 'Toggle Dark Mode';
+    darkModeToggle.classList.add('dark-mode-toggle');
+    document.body.appendChild(darkModeToggle);
+
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    // Typing Effect
+    const typingText = document.querySelector('.hero-content h1');
+    const text = typingText.textContent;
+    typingText.textContent = '';
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            typingText.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 100);
+        }
     }
 
-    .hero-text h2 {
-        font-size: 2em;
+    type();
+
+    // Live Clock for East African Time
+    const clock = document.createElement('div');
+    clock.classList.add('clock');
+    document.body.appendChild(clock);
+
+    function updateClock() {
+        const now = new Date();
+        const options = { timeZone: 'Africa/Nairobi', hour12: false };
+        const timeString = now.toLocaleTimeString('en-US', options);
+        const dateString = now.toLocaleDateString('en-US', options);
+        clock.textContent = `EAT: ${dateString} ${timeString}`;
     }
 
-    .hero-text p {
-        font-size: 1em;
-    }
-
-    footer .socials a {
-        font-size: 1.5em;
-        margin: 10px;
-    }
-}
+    setInterval(updateClock, 1000);
+    updateClock(); // Initial call to display the clock immediately
+});
