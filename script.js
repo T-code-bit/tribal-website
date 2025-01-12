@@ -12,6 +12,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Show and hide sections based on navigation clicks
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.content-section');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            const sectionId = this.getAttribute('data-section');
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Initially hide all sections except the hero section
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+
     // Greeting based on time
     const heroSection = document.getElementById('hero');
     if (heroSection) {
@@ -91,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const options = { timeZone: 'Africa/Nairobi', hour12: false };
         const timeString = now.toLocaleTimeString('en-US', options);
         const dateString = now.toLocaleDateString('en-US', options);
-        clock.textContent = `EAT: ${dateString} ${timeString}`;
+        clock.textContent = `WELCOME TO TRIBAL WEBSITE THE TIME IS: ${dateString} ${timeString}`;
     }
 
     setInterval(updateClock, 1000);
