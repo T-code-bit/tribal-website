@@ -11,7 +11,7 @@ body {
     background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
-    margin: 0;
+    margin: 20px 0 0 0; /* Added margin to the top of the body */
     line-height: 1.6; /* Improved readability */
 }
 
@@ -57,7 +57,7 @@ header .logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh; /* Reduced height to move content upwards */
     text-align: center;
     color: #fff;
     background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better text visibility */
@@ -79,10 +79,11 @@ header .logo {
 /* Content Sections */
 .content-section {
     padding: 40px 20px; /* Added padding for better spacing */
-    margin-top: 20px; /* Added margin to separate sections */
+    margin: 20px auto; /* Added margin to separate sections and center them */
     background: rgba(255, 255, 255, 0.8); /* Light background for better readability */
     border-radius: 10px; /* Rounded corners for a modern look */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 800px; /* Limit the width of the content sections */
 }
 
 /* Footer */
@@ -205,4 +206,52 @@ body.dark-mode footer {
     border-radius: 5px;
     font-size: 1em;
     z-index: 1000;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .content-section {
+        padding: 20px 10px;
+    }
+
+    footer .social-icons a {
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 0.9em;
+    }
+
+    .content-section {
+        padding: 15px 5px;
+    }
+
+    .dark-mode-toggle, .back-to-top, .clock {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
 }
