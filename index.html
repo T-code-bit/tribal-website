@@ -13,7 +13,18 @@
     <!-- Font Awesome for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
+    
+</style>
+</head>
+
+<body class="welcome-page">
+    <div class="welcome-container">
+        <h1 class="welcome-title">Welcome to Tribal Website</h1>
+        <p class="welcome-text">Experience the journey with us</p>
+        <a href="main.html" class="enter-button">Enter Site</a>
+    </div>
+    <div id="clock"></div>
+    
         /* Custom cursor */
         body {
             cursor: url('custom-cursor.png'), auto;
@@ -116,17 +127,7 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-    </style>
-</head>
-
-<body class="welcome-page">
-    <div class="welcome-container">
-        <h1 class="welcome-title">Welcome to Tribal Website</h1>
-        <p class="welcome-text">Experience the journey with us</p>
-        <a href="main.html" class="enter-button">Enter Site</a>
-    </div>
-    <div id="clock"></div>
-
+   
     <script>
         function updateClock() {
             const clock = document.getElementById('clock');
