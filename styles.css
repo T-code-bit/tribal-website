@@ -599,15 +599,3 @@ a:focus, button:focus {
     100% { transform: rotate(360deg); }
 }
 
-/* Rotating Text */
-.rotating-text {
-    display: inline-block;
-    font-size: 2em;
-    color: #fff;
-    animation: rotateText 4s linear infinite;
-}
-
-@keyframes rotateText {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
