@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     sections.forEach(section => {
         section.style.display = 'none';
     });
+    document.getElementById('hero').style.display = 'block';
 
     // Greeting based on time
     const heroSection = document.getElementById('hero');
@@ -43,11 +44,11 @@ document.addEventListener('DOMContentLoaded', function () {
         greeting.style.color = '#fff';
 
         if (timeNow < 12) {
-            greeting.textContent = 'Good Morning! Ready to explore?';
+            greeting.textContent = 'Hey Legend, Good Morning! Ready to explore?';
         } else if (timeNow < 18) {
             greeting.textContent = 'Good Afternoon! Let\'s dive in!';
         } else {
-            greeting.textContent = 'Good Evening! Take a look around!';
+            greeting.textContent = 'Good Evening! Take a look around! Had a long day?';
         }
 
         const heroContent = heroSection.querySelector('.hero-content');
@@ -115,9 +116,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    type()
-        ;
-    
+    type();
+
+    // Live Clock for East African Time
+    const clock = document.createElement('div');
+    clock.classList.add('clock');
+    document.body.appendChild(clock);
+
+    function updateClock() {
+        const now = new Date();
+        const options = { timeZone: 'Africa/Nairobi', hour12: false };
+        const timeString = now.toLocaleTimeString('en-US', options);
+        const dateString = now.toLocaleDateString('en-US', options);
+        clock.textContent = `WELCOME TO TRIBAL WEBSITE THE TIME IS: ${dateString} ${timeString}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock(); // Initial call to display the clock immediately
 
     // Form Validation
     const contactForm = document.getElementById('contact-form');
@@ -137,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // AI Assistant Implementation
     const aiButton = document.createElement('button');
-    aiButton.innerHTML = '<i class="fas fa-robot"></i>';
+    aiButton.innerHTML = '<img src="robot-head.png" alt="AI Assistant" style="width: 40px; height: 40px;">';
     aiButton.classList.add('ai-assistant-button');
     document.body.appendChild(aiButton);
 
