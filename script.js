@@ -116,24 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    type();
-
-    // Live Clock for East African Time
-    const clock = document.createElement('div');
-    clock.classList.add('clock');
-    document.body.appendChild(clock);
-
-    function updateClock() {
-        const now = new Date();
-        const options = { timeZone: 'Africa/Nairobi', hour12: false };
-        const timeString = now.toLocaleTimeString('en-US', options);
-        const dateString = now.toLocaleDateString('en-US', options);
-        clock.textContent = `WELCOME TO TRIBAL WEBSITE THE TIME IS: ${dateString} ${timeString}`;
-    }
-
-    setInterval(updateClock, 1000);
-    updateClock(); // Initial call to display the clock immediately
-
+  
     // Form Validation
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', (event) => {
