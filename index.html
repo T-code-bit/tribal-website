@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal website showcasing my portfolio, blog, and social media links.">
-    <title>My Personal Website</title>
+    <meta name="description" content="Welcome to the Tribal Website. Explore your diversity with us.">
+    <title>Tribal Website</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Google Fonts -->
@@ -125,6 +125,9 @@
 </head>
 
 <body class="welcome-page">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
     <div class="welcome-container">
         <h1 class="welcome-title">Welcome to Tribal Website</h1>
         <h2 class="welcome-subtitle">EXPLORE YOUR DIVERSITY WITH US</h2>
@@ -132,6 +135,7 @@
         <a href="main.html" class="enter-button">Enter Site</a>
     </div>
     <div id="clock"></div>
+    <button id="back-to-top">↑</button>
     <script>
         function updateClock() {
             const clock = document.getElementById('clock');
@@ -142,6 +146,29 @@
         // Update clock every second
         setInterval(updateClock, 1000);
         updateClock(); // Initial call
+
+        // Back-to-top button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Hide preloader after page load
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.display = 'none';
+        });
     </script>
 </body>
 
