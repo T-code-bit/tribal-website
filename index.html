@@ -12,11 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Caveat:wght@400;600&family=Roboto:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
 
     <style>
         /* Custom cursor */
         body {
             cursor: url('custom-cursor.png'), auto;
+            background: url('background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
         /* Back-to-top button */
@@ -29,8 +32,13 @@
             color: #fff;
             border: none;
             padding: 10px 15px;
-            border-radius: 5px;
+            border-radius: 50%;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #back-to-top:hover {
+            background-color: #555;
         }
 
         /* Preloader */
@@ -67,8 +75,14 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: rgba(240, 240, 240, 0.8);
             text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         .welcome-container {
@@ -108,7 +122,7 @@
             background-color: #555;
         }
 
-        /* Clock styles */
+        /* Clock & interactive map styles */
         #clock {
             position: fixed;
             bottom: 20px;
@@ -120,6 +134,30 @@
             padding: 10px 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #map {
+            height: 400px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Blog section styles */
+        .blog-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .blog-content {
+            font-size: 1.2rem;
         }
     </style>
 </head>
@@ -135,7 +173,23 @@
         <a href="main.html" class="enter-button">Enter Site</a>
     </div>
     <div id="clock"></div>
+    <div id="map"></div>
+
+    <!-- Embedded Video -->
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/samplevideo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Blog Section -->
+    <div class="blog-section">
+        <h3 class="blog-title">Recent Blogs</h3>
+        <div class="blog-content">
+            <!-- Here you can dynamically load or list your blog posts -->
+            <p>Discover the fascinating stories and traditions of tribes from around the world. Stay tuned for more updates!</p>
+        </div>
+    </div>
     <button id="back-to-top">↑</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     <script>
         function updateClock() {
             const clock = document.getElementById('clock');
@@ -169,6 +223,14 @@
             const preloader = document.getElementById('preloader');
             preloader.style.display = 'none';
         });
+
+        // Initialize interactive map
+        const map = L.map('map').setView([0, 0], 2); // Set your preferred zoom level and coordinates
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add markers or layers to the map as needed
     </script>
 </body>
 
