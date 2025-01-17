@@ -20,11 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', function () {
             const sectionId = this.getAttribute('data-section');
             sections.forEach(section => {
-                if (section.id === sectionId) {
-                    section.style.display = 'block';
-                } else {
-                    section.style.display = 'none';
-                }
+                section.style.display = (section.id === sectionId) ? 'block' : 'none';
             });
         });
     });
@@ -64,11 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.appendChild(backToTopButton);
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
+        backToTopButton.classList.toggle('show', window.scrollY > 300);
     });
 
     backToTopButton.addEventListener('click', () => {
@@ -85,19 +77,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Check for saved dark mode preference
     if (localStorage.getItem('dark-mode') === 'enabled') {
         document.body.classList.add('dark-mode');
-        darkModeIcon.classList.remove('fa-moon');
-        darkModeIcon.classList.add('fa-sun');
+        darkModeIcon.classList.replace('fa-moon', 'fa-sun');
     }
 
     darkModeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
         if (document.body.classList.contains('dark-mode')) {
-            darkModeIcon.classList.remove('fa-moon');
-            darkModeIcon.classList.add('fa-sun');
+            darkModeIcon.classList.replace('fa-moon', 'fa-sun');
             localStorage.setItem('dark-mode', 'enabled');
         } else {
-            darkModeIcon.classList.remove('fa-sun');
-            darkModeIcon.classList.add('fa-moon');
+            darkModeIcon.classList.replace('fa-sun', 'fa-moon');
             localStorage.setItem('dark-mode', 'disabled');
         }
     });
@@ -115,23 +104,25 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(type, 100);
         }
     }
+    type();
 
-  
     // Form Validation
     const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
+    if (contactForm) {
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
 
-        if (name === '' || email === '' || message === '') {
-            alert('Please fill in all fields.');
-        } else {
-            alert('Message sent successfully!');
-            contactForm.reset();
-        }
-    });
+            if (name === '' || email === '' || message === '') {
+                alert('Please fill in all fields.');
+            } else {
+                alert('Message sent successfully!');
+                contactForm.reset();
+            }
+        });
+    }
 
     // AI Assistant Implementation
     const aiButton = document.createElement('button');
@@ -237,4 +228,3 @@ document.getElementById('new-quote-btn').addEventListener('click', getNewQuote);
 
 // Initial quote
 getNewQuote();
-
