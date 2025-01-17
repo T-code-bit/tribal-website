@@ -65,8 +65,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Welcome page styles */
@@ -81,8 +86,13 @@
         }
 
         @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         .welcome-container {
@@ -159,6 +169,26 @@
         .blog-content {
             font-size: 1.2rem;
         }
+
+        /* Loader */
+        #loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 
@@ -189,6 +219,8 @@
         </div>
     </div>
     <button id="back-to-top">↑</button>
+    <div id="loader"></div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     <script>
         function updateClock() {
@@ -230,38 +262,14 @@
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        <!-- Loader -->
-<div id="loader"></div>
-
-<style>
-#loader {
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-</style>
-
-<script>
-    // Loader script
-    document.onreadystatechange = function () {
-        if (document.readyState !== "complete") {
-            document.querySelector("#loader").style.display = "block";
-        } else {
-            document.querySelector("#loader").style.display = "none";
-        }
-    };
-</script>
-
-
-        // Add markers or layers to the map as needed
+        // Loader script
+        document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                document.querySelector("#loader").style.display = "block";
+            } else {
+                document.querySelector("#loader").style.display = "none";
+            }
+        };
     </script>
 </body>
 
