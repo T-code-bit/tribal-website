@@ -5,13 +5,13 @@
     box-sizing: border-box;
 }
 
+/* Custom Scrollbar */
 html {
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: #ff9a9e #ffffff;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -25,6 +25,7 @@ html {
     border-radius: 4px;
 }
 
+/* Base Styles */
 body {
     font-family: 'Poppins', sans-serif;
     color: #333;
@@ -32,7 +33,7 @@ body {
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     margin: 0;
-    line-height: 1.6; /* Improved readability */
+    line-height: 1.6;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
@@ -59,14 +60,14 @@ header .logo {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px; /* Better spacing between nav items */
+    gap: 15px;
 }
 
 .nav-links li a {
     color: #fff;
     text-decoration: none;
     padding: 5px 10px;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Added color transition */
+    transition: background-color 0.3s ease, color 0.3s ease;
     position: relative;
     overflow: hidden;
 }
@@ -88,7 +89,7 @@ header .logo {
 
 .nav-links li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    color: #000; /* Change text color on hover for better contrast */
+    color: #000;
 }
 
 /* Mobile Menu Button */
@@ -118,32 +119,32 @@ header .logo {
     height: 100vh;
     text-align: center;
     color: #fff;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better text visibility */
-    padding: 20px; /* Added padding for better spacing */
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
 }
 
 .hero-content h1 {
     font-size: 3em;
     margin-bottom: 0.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow for better readability */
-    font-family: 'Merriweather', serif; /* Changed font */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Merriweather', serif;
 }
 
 .hero-content p {
     font-size: 1.2em;
-    max-width: 600px; /* Limit the width of the paragraph for better readability */
-    margin: 0 auto; /* Center the paragraph */
-    font-family: 'Roboto', sans-serif; /* Changed font */
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Content Sections */
 .content-section {
-    padding: 40px 20px; /* Added padding for better spacing */
-    margin-top: 20px; /* Added margin to separate sections */
-    background: rgba(255, 255, 255, 0.8); /* Light background for better readability */
-    border-radius: 10px; /* Rounded corners for a modern look */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    font-family: 'Roboto', sans-serif; /* Changed font */
+    padding: 40px 20px;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Footer */
@@ -152,7 +153,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: relative; /* Changed to relative to avoid overlap issues */
+    position: relative;
     width: 100%;
     bottom: 0;
 }
@@ -160,7 +161,7 @@ footer {
 footer p {
     margin: 0;
     font-size: 0.9em;
-    font-family: 'Roboto', sans-serif; /* Changed font */
+    font-family: 'Roboto', sans-serif;
 }
 
 footer .social-icons {
@@ -174,7 +175,7 @@ footer .social-icons a {
 }
 
 footer .social-icons a:hover {
-    color: #ff9a9e; /* Change icon color on hover */
+    color: #ff9a9e;
 }
 
 /* Animation for background gradient */
@@ -273,7 +274,7 @@ body.dark-mode .content-section {
     border-radius: 5px;
     font-size: 1em;
     z-index: 1000;
-    font-family: 'Roboto', sans-serif; /* Changed font */
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Focus States for Accessibility */
@@ -384,10 +385,11 @@ a:focus, button:focus {
     to { transform: rotate(360deg); }
 }
 
+/* AI Assistant Button */
 .ai-assistant-button {
     position: fixed;
     bottom: 30px;
-    right: 30px;  /* Changed from left to right */
+    right: 30px;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -412,10 +414,11 @@ a:focus, button:focus {
     box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
 }
 
+/* AI Chat */
 .ai-chat {
     position: fixed;
     bottom: 100px;
-    right: 30px;  /* Changed from left to right */
+    right: 30px;
     width: 320px;
     height: 450px;
     background: white;
@@ -487,7 +490,7 @@ a:focus, button:focus {
     border-radius: 0 0 10px 10px;
 }
 
-/* Dark mode support */
+/* Dark mode support for AI Chat */
 .dark-mode .ai-chat {
     background: #333;
     color: white;
@@ -504,6 +507,7 @@ a:focus, button:focus {
     color: white;
 }
 
+/* Welcome Page */
 .welcome-page {
     background: linear-gradient(135deg, #1a1a1a, #333);
     min-height: 100vh;
@@ -558,6 +562,7 @@ a:focus, button:focus {
         transform: translateY(0);
     }
 }
+
 /* Glowing Text Box */
 .glowing-text-box {
     position: relative;
@@ -600,7 +605,7 @@ a:focus, button:focus {
     100% { transform: rotate(360deg); }
 }
 
-/* For the toggle bar */
+/* Navbar Toggle Button */
 .navbar .toggle-button {
     display: none;
 }
@@ -610,9 +615,6 @@ a:focus, button:focus {
     width: 25px;
     height: 3px;
     margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     background-color: #fff;
 }
@@ -632,6 +634,7 @@ a:focus, button:focus {
     }
 }
 
+/* FAQ */
 .faq-question {
     cursor: pointer;
 }
@@ -643,4 +646,3 @@ a:focus, button:focus {
 .faq-question.active + .faq-answer {
     display: block;
 }
-
