@@ -201,3 +201,40 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add initial greeting
     setTimeout(() => addMessage('Hello! How can I help you navigate the website?'), 1000);
 });
+
+// Toggle button for the navigation
+const toggleButton = document.querySelector('.toggle-button');
+const navbarLinks = document.querySelector('.navbar-links');
+
+toggleButton.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active');
+});
+
+// FAQ toggle
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+        question.classList.toggle('active');
+    });
+});
+
+// Quotes array
+const quotes = [
+    "The best way to predict the future is to create it.",
+    "You miss 100% of the shots you don't take.",
+    "Life is 10% what happens to us and 90% how we react to it."
+];
+
+// Function to get a new quote
+const getNewQuote = () => {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    document.getElementById('quote').textContent = quotes[randomIndex];
+};
+
+// Event listener for new quote button
+document.getElementById('new-quote-btn').addEventListener('click', getNewQuote);
+
+// Initial quote
+getNewQuote();
+
