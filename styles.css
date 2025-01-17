@@ -600,3 +600,47 @@ a:focus, button:focus {
     100% { transform: rotate(360deg); }
 }
 
+/* For the toggle bar */
+.navbar .toggle-button {
+    display: none;
+}
+
+.navbar .toggle-button .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .navbar .toggle-button {
+        display: block;
+    }
+
+    .navbar .navbar-links {
+        display: none;
+    }
+
+    .navbar .navbar-links.active {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.faq-question {
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+}
+
+.faq-question.active + .faq-answer {
+    display: block;
+}
+
