@@ -214,7 +214,29 @@ faqQuestions.forEach(question => {
 const quotes = [
     "The best way to predict the future is to create it.",
     "You miss 100% of the shots you don't take.",
-    "Life is 10% what happens to us and 90% how we react to it."
+    "Life is 10% what happens to us and 90% how we react to it.",
+    "The only way to do great work is to love what you do.",
+    "Success is not the key to happiness. Happiness is the key to success.",
+    "Don't watch the clock; do what it does. Keep going.",
+    "Success usually comes to those who are too busy to be looking for it.",
+    "Opportunities don't happen. You create them.",
+    "Don't be afraid to give up the good to go for the great.",
+    "I find that the harder I work, the more luck I seem to have.",
+    "The successful warrior is the average man, with laser-like focus.",
+    "Success seems to be connected with action. Successful people keep moving.",
+    "Small daily improvements over time lead to stunning results.",
+    "The only limit to our realization of tomorrow is our doubts of today.",
+    "The way to get started is to quit talking and begin doing.",
+    "The harder you work for something, the greater you’ll feel when you achieve it.",
+    "Dream bigger. Do bigger.",
+    "Don’t let yesterday take up too much of today.",
+    "You learn more from failure than from success. Don’t let it stop you.",
+    "It’s not whether you get knocked down, it’s whether you get up.",
+    "If you are working on something that you really care about, you don’t have to be pushed. The vision pulls you.",
+    "People who are crazy enough to think they can change the world, are the ones who do.",
+    "We may encounter many defeats but we must not be defeated.",
+    "Knowing is not enough; we must apply. Wishing is not enough; we must do.",
+    "Imagine your life is perfect in every respect; what would it look like?"
 ];
 
 // Function to get a new quote
@@ -223,8 +245,8 @@ const getNewQuote = () => {
     document.getElementById('quote').textContent = quotes[randomIndex];
 };
 
-// Event listener for new quote button
-document.getElementById('new-quote-btn').addEventListener('click', getNewQuote);
+// Set a new quote every 2 minutes (120000 milliseconds)
+setInterval(getNewQuote, 120000);
 
 // Initial quote
 getNewQuote();
