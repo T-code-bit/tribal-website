@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    
+    <title>Tribal Technologies | Our Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .page-header {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        .solutions-detailed {
+            background-color: #1e1e1e;
+            padding: 60px 0;
+        }
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .solution-card.detailed {
+            background-color: #2c2c2c;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .solution-card.detailed:hover {
+            transform: scale(1.03);
+        }
+        .solution-card.detailed img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            filter: brightness(0.7);
+            transition: filter 0.3s ease;
+        }
+        .solution-card.detailed:hover img {
+            filter: brightness(0.8);
+        }
+        .solution-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            color: #e0e0e0;
+        }
+        .solution-content h3 {
+            color: #4a90e2;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        .solution-content p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .solution-features {
+            list-style-type: none;
+            padding: 0;
+        }
+        .solution-features li {
+            padding: 10px 0;
+            border-top: 1px solid #333;
+            color: #b0b0b0;
+            position: relative;
+            padding-left: 25px;
+        }
+        .solution-features li::before {
+            content: 'âœ“';
+            position: absolute;
+            left: 0;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        .cta-section {
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 60px 0;
+        }
+        .cta-section h2 {
+            color: #4a90e2;
+            margin-bottom: 15px;
+        }
+        .primary-btn {
+            background-color: #4a90e2;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .primary-btn:hover {
+            background-color: #3a7bd5;
+        }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <h1>Tribal Technologies</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="technologies.html">Technologies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Technological Solutions</h1>
+                <p>Innovative approaches to complex business challenges</p>
+            </div>
+        </section>
+
+        <section class="solutions-detailed">
+            <div class="container">
+                <div class="solutions-grid">
+                    <div class="solution-card detailed">
+                        <img src="enterprise-integration.svg" alt="Enterprise Software Integration">
+                        <div class="solution-content">
+                            <h3>Enterprise Software Integration</h3>
+                            <p>Seamless system interconnectivity and workflow optimization. We design and implement comprehensive enterprise solutions that streamline your business processes.</p>
+                            <ul class="solution-features">
+                                <li>Custom ERP systems</li>
+                                <li>API integration</li>
+                                <li>Legacy system modernization</li>
+                                <li>Cross-platform compatibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="solution-card detailed">
+                        <img src="cybersecurity.svg" alt="Advanced Cybersecurity">
+                        <div class="solution-content">
+                            <h3>Advanced Cybersecurity</h3>
+                            <p>Comprehensive security frameworks and threat mitigation strategies. We provide end-to-end security solutions to protect your digital assets.</p>
+                            <ul class="solution-features">
+                                <li>Threat detection</li>
+                                <li>Penetration testing</li>
+                                <li>Security audits</li>
+                                <li>Compliance management</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="solution-card detailed">
+                        <img src="data-analytics.svg" alt="Data Analytics Platform">
+                        <div class="solution-content">
+                            <h3>Data Analytics Platform</h3>
+                            <p>Transforming raw data into actionable business intelligence. Our advanced analytics solutions help you make data-driven decisions.</p>
+                            <ul class="solution-features">
+                                <li>Business intelligence dashboards</li>
+                                <li>Predictive modeling</li>
+                                <li>Data visualization</li>
+                                <li>Machine learning insights</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Transform Your Business with Smart Solutions</h2>
+                <p>Discover how our technological solutions can drive your success</p>
+                <a href="contact.html" class="btn primary-btn">Get Started</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section quick-links-section">
+                    <canvas id="quick-links-particles" class="hero-particles"></canvas>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="technologies.html">Technologies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Tribal Technologies. All Rights Reserved.</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <canvas id="community-particles" class="hero-particles"></canvas>
+        <canvas id="initiatives-particles" class="hero-particles"></canvas>
+    </footer>
+
+    <script src="script.js"></script>
+<script src="navigation.js"></script><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script></body>
+</html>
+

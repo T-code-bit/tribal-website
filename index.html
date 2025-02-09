@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    
+    <title>Tribal Technologies | Innovative Software Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://cdnjs.cloudflare.com https://kit.fontawesome.com https://d3js.org https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js 'unsafe-inline';
+        style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline';
+        font-src 'self' https://cdnjs.cloudflare.com https://kit.fontawesome.com;
+        img-src 'self' data:;
+        connect-src 'self';
+        frame-src 'none';
+        object-src 'none';
+    ">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="brand-logo">
+                    <h1>Tribal Technologies</h1>
+                </div>
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="services.html" class="nav-link">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Services</span>
+                            <i class="fas fa-caret-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html#consulting">Consulting</a></li>
+                            <li><a href="services.html#development">Development</a></li>
+                            <li><a href="services.html#training">Training</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="solutions.html" class="nav-link">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <span>Solutions</span>
+                            <i class="fas fa-caret-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="solutions.html#enterprise">Enterprise</a></li>
+                            <li><a href="solutions.html#startup">Startup</a></li>
+                            <li><a href="solutions.html#custom">Custom</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="technologies.html" class="nav-link">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Technologies</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section hero-advanced">
+            <div class="hero-background">
+                <div class="hero-grid"></div>
+                <div class="hero-scanline"></div>
+            </div>
+            <canvas id="hero-particles" class="hero-particles"></canvas>
+            <div class="hero-content">
+                <h1 class="hero-title"><span class="scramble-text">Tribal</span> Tech</h1>
+                <p class="hero-subtitle">Transforming Digital Landscapes Through Cutting-Edge Innovation</p>
+                <a href="#services" class="hero-cta">Explore Services</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-sections">
+                    <div class="footer-section quick-links-section">
+                        <canvas id="quick-links-particles" class="hero-particles"></canvas>
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="solutions.html">Solutions</a></li>
+                            <li><a href="technologies.html">Technologies</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Tribal Technologies. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+        <canvas id="community-particles" class="hero-particles"></canvas>
+        <canvas id="initiatives-particles" class="hero-particles"></canvas>
+    </footer>
+
+    <style>
+        .section-particle-network {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Initializing Particle Networks');
+            
+            // Hero Particles
+            const heroParticlesCanvas = document.getElementById('hero-particles');
+            if (heroParticlesCanvas) {
+                console.log('Hero Particles Canvas Found');
+                const heroParticles = new ParticleNetwork('hero-particles', {
+                    particleColor: 'rgba(0, 255, 255, 0.7)',  // Brighter Neon Cyan
+                    particleCount: 200,
+                    connectionDistance: 120,
+                    mouseRadius: 200
+                });
+                console.log('Hero Particles Initialized');
+            } else {
+                console.error('Hero Particles Canvas Not Found');
+            }
+
+            // Quick Links Particles
+            const quickLinksParticlesCanvas = document.getElementById('quick-links-particles');
+            if (quickLinksParticlesCanvas) {
+                console.log('Quick Links Particles Canvas Found');
+                const quickLinksParticles = new ParticleNetwork('quick-links-particles', {
+                    particleColor: 'rgba(255, 0, 255, 0.6)',  // Brighter Neon Magenta
+                    particleCount: 150,
+                    connectionDistance: 100,
+                    mouseRadius: 150
+                });
+                console.log('Quick Links Particles Initialized');
+            } else {
+                console.error('Quick Links Particles Canvas Not Found');
+            }
+
+            // Community Particles
+            const communityParticlesCanvas = document.getElementById('community-particles');
+            if (communityParticlesCanvas) {
+                console.log('Community Particles Canvas Found');
+                const communityParticles = new ParticleNetwork('community-particles', {
+                    particleColor: 'rgba(255, 165, 0, 0.5)',  // Orange
+                    particleCount: 100,
+                    connectionDistance: 90,
+                    mouseRadius: 100
+                });
+                console.log('Community Particles Initialized');
+            } else {
+                console.error('Community Particles Canvas Not Found');
+            }
+
+            // Initiatives Particles
+            const initiativesParticlesCanvas = document.getElementById('initiatives-particles');
+            if (initiativesParticlesCanvas) {
+                console.log('Initiatives Particles Canvas Found');
+                const initiativesParticles = new ParticleNetwork('initiatives-particles', {
+                    particleColor: 'rgba(0, 128, 0, 0.5)',  // Green
+                    particleCount: 100,
+                    connectionDistance: 90,
+                    mouseRadius: 100
+                });
+                console.log('Initiatives Particles Initialized');
+            } else {
+                console.error('Initiatives Particles Canvas Not Found');
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+    <script src="navigation.js"></script>
+    <script src="tech-constellation.js"></script>
+    <script src="scroll-animations.js"></script>
+    <script src="hero-particles.js"></script>
+    <!-- Interactive Scripts -->
+    <script src="scramble.js"></script>
+    <script src="particle-network.js"></script>
+    <script src="ai-cursor.js"></script>
+    <script src="holographic-interactions.js"></script>
+</body>
+</html>
+

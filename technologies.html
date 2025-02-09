@@ -1,0 +1,417 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    
+    <title>Tribal Technologies | Our Tech Stack</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .page-header {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            padding: 40px 0;
+        }
+        .technologies-detailed {
+            background-color: #1e1e1e;
+            padding: 60px 0;
+        }
+        .tech-category {
+            margin-bottom: 40px;
+        }
+        .tech-category h3 {
+            color: #4a90e2;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .technologies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .tech-card {
+            background-color: #2c2c2c;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .tech-card:hover {
+            transform: scale(1.05);
+        }
+        .tech-card img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+        .tech-card h4 {
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .tech-card p {
+            color: #b0b0b0;
+        }
+        .ai-ml-section {
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 60px 0;
+        }
+        .ai-ml-section h2 {
+            color: #4a90e2;
+            margin-bottom: 30px;
+        }
+        .ai-technologies {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .ai-tech-card {
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            padding: 25px;
+            width: 300px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .ai-tech-card:hover {
+            transform: scale(1.05);
+        }
+        .ai-tech-card img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+        .ai-tech-card h3 {
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .ai-tech-card p {
+            color: #b0b0b0;
+        }
+        .cta-section {
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 60px 0;
+        }
+        .cta-section h2 {
+            color: #4a90e2;
+            margin-bottom: 15px;
+        }
+        .primary-btn {
+            background-color: #4a90e2;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .primary-btn:hover {
+            background-color: #3a7bd5;
+        }
+        .skill-level {
+            margin: 15px 0;
+        }
+        .skill-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .skill-fill {
+            height: 100%;
+            background-color: #4a90e2;
+            transition: width 0.5s ease-in-out;
+        }
+        .skill-label {
+            display: block;
+            text-align: right;
+            color: #b0b0b0;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        .tech-details {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+            text-align: left;
+        }
+        .tech-details li {
+            padding: 5px 0;
+            border-top: 1px solid #333;
+            color: #b0b0b0;
+            position: relative;
+            padding-left: 20px;
+        }
+        .tech-details li::before {
+            content: 'â€¢';
+            position: absolute;
+            left: 0;
+            color: #4a90e2;
+        }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <h1>Tribal Technologies</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="technologies.html">Technologies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Technologies We Master</h1>
+                <p>Cutting-edge technologies driving innovation</p>
+            </div>
+        </section>
+
+        <section class="technologies-detailed">
+            <div class="container">
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h3>Programming Languages</h3>
+                        <div class="technologies-grid">
+                            <div class="tech-card">
+                                <img src="programming-languages.svg" alt="Programming Languages">
+                                <h4>Python</h4>
+                                <div class="skill-level">
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-label">Expert (95%)</span>
+                                </div>
+                                <p>Advanced data science, machine learning, and backend development with extensive experience in scientific computing, AI frameworks, and scalable web applications.</p>
+                                <ul class="tech-details">
+                                    <li>NumPy, Pandas, SciPy for data manipulation</li>
+                                    <li>Django and Flask web frameworks</li>
+                                    <li>Machine learning with scikit-learn</li>
+                                </ul>
+                            </div>
+                            <div class="tech-card">
+                                <img src="programming-languages.svg" alt="Programming Languages">
+                                <h4>JavaScript</h4>
+                                <div class="skill-level">
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 90%"></div>
+                                    </div>
+                                    <span class="skill-label">Advanced (90%)</span>
+                                </div>
+                                <p>Full-stack development with modern JavaScript ecosystem, specializing in reactive and dynamic web applications with strong emphasis on performance and user experience.</p>
+                                <ul class="tech-details">
+                                    <li>ES6+ features and functional programming</li>
+                                    <li>Node.js backend development</li>
+                                    <li>React and Vue.js frontend frameworks</li>
+                                </ul>
+                            </div>
+                            <div class="tech-card">
+                                <img src="programming-languages.svg" alt="Programming Languages">
+                                <h4>TypeScript</h4>
+                                <div class="skill-level">
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 85%"></div>
+                                    </div>
+                                    <span class="skill-label">Proficient (85%)</span>
+                                </div>
+                                <p>Enterprise-grade application development with strong typing, advanced type inference, and robust architectural patterns for scalable and maintainable software solutions.</p>
+                                <ul class="tech-details">
+                                    <li>Angular and React with TypeScript</li>
+                                    <li>Advanced type system and generics</li>
+                                    <li>Decorators and metadata programming</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <h3>Frameworks & Libraries</h3>
+                        <div class="technologies-grid">
+                            <div class="tech-card">
+                                <img src="frameworks-libraries.svg" alt="Frameworks and Libraries">
+                                <h4>React</h4>
+                                <div class="skill-level">
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 92%"></div>
+                                    </div>
+                                    <span class="skill-label">Expert (92%)</span>
+                                </div>
+                                <p>Creating highly interactive and performant single-page applications with modern React ecosystem, including hooks, context API, and advanced state management.</p>
+                                <ul class="tech-details">
+                                    <li>Redux and MobX state management</li>
+                                    <li>Server-side rendering</li>
+                                    <li>Performance optimization techniques</li>
+                                </ul>
+                            </div>
+                            <div class="tech-card">
+                                <img src="frameworks-libraries.svg" alt="Frameworks and Libraries">
+                                <h4>Node.js</h4>
+                                <div class="skill-level">
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 88%"></div>
+                                    </div>
+                                    <span class="skill-label">Advanced (88%)</span>
+                                </div>
+                                <p>Building scalable and efficient backend services, microservices architecture, and real-time applications using Node.js and its extensive ecosystem.</p>
+                                <ul class="tech-details">
+                                    <li>Express.js and Nest.js frameworks</li>
+                                    <li>GraphQL API development</li>
+                                    <li>Microservices and containerization</li>
+                                </ul>
+                            </div>
+                            <div class="tech-card">
+                                <img src="frameworks-libraries.svg" alt="Frameworks and Libraries">
+                                <h4>Django</h4>
+                                <div class="skill-level">
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 85%"></div>
+                                    </div>
+                                    <span class="skill-label">Proficient (85%)</span>
+                                </div>
+                                <p>Developing robust and secure web applications with Django's powerful ORM, authentication system, and built-in admin interface for rapid development.</p>
+                                <ul class="tech-details">
+                                    <li>Django REST Framework</li>
+                                    <li>Database migrations</li>
+                                    <li>Custom middleware and signals</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <h3>Cloud & DevOps</h3>
+                        <div class="technologies-grid">
+                            <div class="tech-card">
+                                <img src="cloud-devops.svg" alt="Cloud and DevOps">
+                                <h4>AWS</h4>
+                                <div class="skill-level">
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 90%"></div>
+                                    </div>
+                                    <span class="skill-label">Expert (90%)</span>
+                                </div>
+                                <p>Comprehensive cloud infrastructure design, deployment, and management using AWS services, with a focus on scalability, security, and cost-effectiveness.</p>
+                                <ul class="tech-details">
+                                    <li>EC2, S3, Lambda, and ECS</li>
+                                    <li>CloudFormation and Terraform</li>
+                                    <li>Serverless architecture</li>
+                                </ul>
+                            </div>
+                            <div class="tech-card">
+                                <img src="cloud-devops.svg" alt="Cloud and DevOps">
+                                <h4>Docker</h4>
+                                <div class="skill-level">
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 88%"></div>
+                                    </div>
+                                    <span class="skill-label">Advanced (88%)</span>
+                                </div>
+                                <p>Implementing containerization strategies for consistent development environments, microservices, and seamless deployment across different platforms.</p>
+                                <ul class="tech-details">
+                                    <li>Multi-stage builds</li>
+                                    <li>Docker Compose</li>
+                                    <li>Container optimization</li>
+                                </ul>
+                            </div>
+                            <div class="tech-card">
+                                <img src="cloud-devops.svg" alt="Cloud and DevOps">
+                                <h4>Kubernetes</h4>
+                                <div class="skill-level">
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 85%"></div>
+                                    </div>
+                                    <span class="skill-label">Proficient (85%)</span>
+                                </div>
+                                <p>Advanced container orchestration and management, designing complex distributed systems with high availability and automated scaling.</p>
+                                <ul class="tech-details">
+                                    <li>Cluster management</li>
+                                    <li>Helm charts</li>
+                                    <li>Custom resource definitions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ai-ml-section">
+            <div class="container">
+                <h2>AI & Machine Learning Expertise</h2>
+                <div class="ai-technologies">
+                    <div class="ai-tech-card">
+                        <img src="ai-ml.svg" alt="AI and Machine Learning">
+                        <h3>TensorFlow</h3>
+                        <p>Advanced machine learning models</p>
+                    </div>
+                    <div class="ai-tech-card">
+                        <img src="ai-ml.svg" alt="AI and Machine Learning">
+                        <h3>PyTorch</h3>
+                        <p>Deep learning research</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Let's Build Something Innovative</h2>
+                <p>Our technology expertise is ready to transform your ideas</p>
+                <a href="contact.html" class="btn primary-btn">Start Your Project</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section quick-links-section">
+                    <canvas id="quick-links-particles" class="hero-particles"></canvas>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="technologies.html">Technologies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Tribal Technologies. All Rights Reserved.</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <canvas id="community-particles" class="hero-particles"></canvas>
+        <canvas id="initiatives-particles" class="hero-particles"></canvas>
+    </footer>
+
+    <script src="script.js"></script>
+<script src="navigation.js"></script><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script></body>
+</html>
+

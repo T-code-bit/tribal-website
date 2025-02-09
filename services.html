@@ -1,0 +1,447 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    
+    <title>Tribal Technologies | Our Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #333;
+            --text-color: #555;
+            --light-bg: #f8f9fa;
+        }
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .services-detailed {
+            padding: 60px 0;
+            background-color: #1e1e1e;
+        }
+        .services-detailed .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .services-detailed .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .service-card.detailed {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            background: #2c2c2c;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .service-card.detailed:hover {
+            transform: scale(1.03);
+        }
+        .service-diagram {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2c2c2c 0%, #1e1e1e 100%);
+            padding: 20px;
+            position: relative;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .service-diagram svg {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        .service-diagram-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, transparent 60%);
+            animation: subtle-pulse 5s infinite alternate;
+            z-index: 1;
+        }
+        @keyframes subtle-pulse {
+            0% { transform: scale(0.98); opacity: 0.9; }
+            100% { transform: scale(1.02); opacity: 1; }
+        }
+        .service-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            text-align: center;
+            color: #e0e0e0;
+        }
+        .service-icon {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .service-icon i {
+            font-size: 3.5rem;
+            color: #4a90e2;
+            background-color: rgba(74, 144, 226, 0.1);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .service-card.detailed:hover .service-icon i {
+            transform: rotate(15deg);
+            color: #ffffff;
+            background-color: #4a90e2;
+        }
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: #4a90e2;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        .service-content > p {
+            margin-bottom: 20px;
+            color: #b0b0b0;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        .service-features {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        .service-features li {
+            padding: 10px 0;
+            border-top: 1px solid #333;
+            color: #b0b0b0;
+            position: relative;
+            padding-left: 25px;
+        }
+        .service-features li:before {
+            content: 'âœ“';
+            position: absolute;
+            left: 0;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        .service-features li:first-child {
+            border-top: none;
+        }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <h1>Tribal Technologies</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="technologies.html">Technologies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Core Services</h1>
+                <p>Comprehensive technological solutions tailored to your needs</p>
+            </div>
+        </section>
+
+        <section class="services-detailed">
+            <div class="container">
+                <div class="services-grid">
+                    <div class="service-card detailed">
+                        <div class="service-diagram">
+                            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="softwareGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#4a90e2" stop-opacity="0.8"/>
+                                        <stop offset="100%" stop-color="#4a90e2" stop-opacity="0.3"/>
+                                    </linearGradient>
+                                    <filter id="softwareShadow">
+                                        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                                        <feOffset dx="0" dy="3" result="offsetblur"/>
+                                        <feFlood flood-color="#000000" flood-opacity="0.4"/>
+                                        <feComposite in2="offsetblur" operator="in"/>
+                                        <feMerge>
+                                            <feMergeNode/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                    <pattern id="gridPattern" width="10" height="10" patternUnits="userSpaceOnUse">
+                                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(74,144,226,0.1)" stroke-width="0.5"/>
+                                    </pattern>
+                                </defs>
+                                
+                                <rect width="100%" height="100%" fill="#1e1e1e"/>
+                                
+                                <g transform="translate(50, 40)">
+                                    <rect x="0" y="0" width="200" height="120" rx="10" ry="10" 
+                                          fill="url(#softwareGradient)" stroke="#4a90e2" stroke-width="2"
+                                          filter="url(#softwareShadow)"/>
+                                    
+                                    <g transform="translate(20, 20)">
+                                        <rect x="0" y="0" width="60" height="40" rx="5" ry="5" 
+                                              fill="rgba(255,255,255,0.1)" stroke="#4a90e2" stroke-width="1"/>
+                                        <text x="30" y="25" text-anchor="middle" font-size="10" fill="#ffffff">Database</text>
+                                    </g>
+                                    
+                                    <g transform="translate(120, 20)">
+                                        <rect x="0" y="0" width="60" height="40" rx="5" ry="5" 
+                                              fill="rgba(255,255,255,0.1)" stroke="#4a90e2" stroke-width="1"/>
+                                        <text x="30" y="25" text-anchor="middle" font-size="10" fill="#ffffff">Backend</text>
+                                    </g>
+                                    
+                                    <g transform="translate(120, 70)">
+                                        <rect x="0" y="0" width="60" height="40" rx="5" ry="5" 
+                                              fill="rgba(255,255,255,0.1)" stroke="#4a90e2" stroke-width="1"/>
+                                        <text x="30" y="25" text-anchor="middle" font-size="10" fill="#ffffff">Frontend</text>
+                                    </g>
+                                    
+                                    <path d="M50,40 Q85,55 120,40" fill="none" stroke="#4a90e2" stroke-width="2" stroke-dasharray="5,5"/>
+                                    <path d="M120,40 Q155,55 190,40" fill="none" stroke="#4a90e2" stroke-width="2" stroke-dasharray="5,5"/>
+                                    <path d="M120,90 Q155,105 190,90" fill="none" stroke="#4a90e2" stroke-width="2" stroke-dasharray="5,5"/>
+                                </g>
+                                
+                                <text x="150" y="20" text-anchor="middle" font-size="10" fill="#888">Software Architecture</text>
+                            </svg>
+                            <div class="service-diagram-overlay"></div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Custom Software Development</h3>
+                            <p>End-to-end software engineering for enterprise and startup needs.</p>
+                            <ul class="service-features">
+                                <li>Full-stack development</li>
+                                <li>Agile methodology</li>
+                                <li>Custom enterprise solutions</li>
+                                <li>Startup MVP creation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card detailed">
+                        <div class="service-diagram">
+                            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#4CAF50" stop-opacity="0.8"/>
+                                        <stop offset="100%" stop-color="#4CAF50" stop-opacity="0.3"/>
+                                    </linearGradient>
+                                    <filter id="cloudShadow">
+                                        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                                        <feOffset dx="0" dy="3" result="offsetblur"/>
+                                        <feFlood flood-color="#000000" flood-opacity="0.4"/>
+                                        <feComposite in2="offsetblur" operator="in"/>
+                                        <feMerge>
+                                            <feMergeNode/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                    <pattern id="cloudGridPattern" width="10" height="10" patternUnits="userSpaceOnUse">
+                                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(76,175,80,0.1)" stroke-width="0.5"/>
+                                    </pattern>
+                                </defs>
+                                
+                                <rect width="100%" height="100%" fill="#1e1e1e"/>
+                                
+                                <g transform="translate(50, 40)">
+                                    <rect x="0" y="0" width="200" height="120" rx="10" ry="10" 
+                                          fill="url(#cloudGradient)" stroke="#4CAF50" stroke-width="2"
+                                          filter="url(#cloudShadow)"/>
+                                    
+                                    <g transform="translate(20, 20)">
+                                        <circle cx="30" cy="30" r="25" 
+                                                fill="rgba(255,255,255,0.1)" stroke="#4CAF50" stroke-width="1"/>
+                                        <text x="30" y="35" text-anchor="middle" font-size="10" fill="#ffffff">AWS</text>
+                                    </g>
+                                    
+                                    <g transform="translate(80, 20)">
+                                        <circle cx="30" cy="30" r="25" 
+                                                fill="rgba(255,255,255,0.1)" stroke="#4CAF50" stroke-width="1"/>
+                                        <text x="30" y="35" text-anchor="middle" font-size="10" fill="#ffffff">Azure</text>
+                                    </g>
+                                    
+                                    <g transform="translate(140, 20)">
+                                        <circle cx="30" cy="30" r="25" 
+                                                fill="rgba(255,255,255,0.1)" stroke="#4CAF50" stroke-width="1"/>
+                                        <text x="30" y="35" text-anchor="middle" font-size="10" fill="#ffffff">GCP</text>
+                                    </g>
+                                    
+                                    <path d="M50,70 Q100,100 150,70" fill="none" stroke="#4CAF50" stroke-width="2" stroke-dasharray="5,5"/>
+                                    <path d="M50,70 Q100,40 150,70" fill="none" stroke="#4CAF50" stroke-width="2" stroke-dasharray="5,5"/>
+                                </g>
+                                
+                                <text x="150" y="20" text-anchor="middle" font-size="10" fill="#888">Cloud Infrastructure</text>
+                            </svg>
+                            <div class="service-diagram-overlay"></div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3>Cloud Infrastructure</h3>
+                            <p>Scalable cloud solutions with advanced security and performance.</p>
+                            <ul class="service-features">
+                                <li>Cloud migration</li>
+                                <li>Infrastructure design</li>
+                                <li>Security optimization</li>
+                                <li>Hybrid cloud solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card detailed">
+                        <div class="service-diagram">
+                            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#FF5722" stop-opacity="0.8"/>
+                                        <stop offset="100%" stop-color="#FF5722" stop-opacity="0.3"/>
+                                    </linearGradient>
+                                    <filter id="aiShadow">
+                                        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                                        <feOffset dx="0" dy="3" result="offsetblur"/>
+                                        <feFlood flood-color="#000000" flood-opacity="0.4"/>
+                                        <feComposite in2="offsetblur" operator="in"/>
+                                        <feMerge>
+                                            <feMergeNode/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                    <pattern id="aiGridPattern" width="10" height="10" patternUnits="userSpaceOnUse">
+                                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,87,34,0.1)" stroke-width="0.5"/>
+                                    </pattern>
+                                </defs>
+                                
+                                <rect width="100%" height="100%" fill="#1e1e1e"/>
+                                
+                                <g transform="translate(50, 40)">
+                                    <rect x="0" y="0" width="200" height="120" rx="10" ry="10" 
+                                          fill="url(#aiGradient)" stroke="#FF5722" stroke-width="2"
+                                          filter="url(#aiShadow)"/>
+                                    
+                                    <g transform="translate(20, 20)">
+                                        <circle cx="30" cy="30" r="25" 
+                                                fill="rgba(255,255,255,0.1)" stroke="#FF5722" stroke-width="1"/>
+                                        <text x="30" y="35" text-anchor="middle" font-size="10" fill="#ffffff">Input</text>
+                                    </g>
+                                    
+                                    <g transform="translate(80, 20)">
+                                        <circle cx="30" cy="30" r="25" 
+                                                fill="rgba(255,255,255,0.1)" stroke="#FF5722" stroke-width="1"/>
+                                        <text x="30" y="35" text-anchor="middle" font-size="10" fill="#ffffff">Hidden</text>
+                                    </g>
+                                    
+                                    <g transform="translate(140, 20)">
+                                        <circle cx="30" cy="30" r="25" 
+                                                fill="rgba(255,255,255,0.1)" stroke="#FF5722" stroke-width="1"/>
+                                        <text x="30" y="35" text-anchor="middle" font-size="10" fill="#ffffff">Output</text>
+                                    </g>
+                                    
+                                    <path d="M50,70 Q100,100 150,70" fill="none" stroke="#FF5722" stroke-width="2" stroke-dasharray="5,5"/>
+                                    <path d="M50,70 Q100,40 150,70" fill="none" stroke="#FF5722" stroke-width="2" stroke-dasharray="5,5"/>
+                                </g>
+                                
+                                <text x="150" y="20" text-anchor="middle" font-size="10" fill="#888">Neural Network</text>
+                            </svg>
+                            <div class="service-diagram-overlay"></div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3>AI & Machine Learning</h3>
+                            <p>Intelligent systems and predictive analytics solutions.</p>
+                            <ul class="service-features">
+                                <li>Machine learning models</li>
+                                <li>Predictive analytics</li>
+                                <li>Natural language processing</li>
+                                <li>Computer vision</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Let's discuss how our services can drive your technological innovation</p>
+                <a href="contact.html" class="btn primary-btn">Start Your Project</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-sections">
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="solutions.html">Solutions</a></li>
+                            <li><a href="technologies.html">Technologies</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section quick-links-section">
+                        <canvas id="quick-links-particles" class="hero-particles"></canvas>
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="solutions.html">Solutions</a></li>
+                            <li><a href="technologies.html">Technologies</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Tribal Technologies. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+        <canvas id="community-particles" class="hero-particles"></canvas>
+        <canvas id="initiatives-particles" class="hero-particles"></canvas>
+    </footer>
+
+    <script src="script.js"></script>
+<script src="navigation.js"></script><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script></body>
+</html>
+

@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>Tribal Technologies - Project Universe</title>
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --secondary-color: #D2691E;
+            --background-dark: #1A1A1A;
+            --text-light: #F4E1D2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-light);
+        }
+
+        #project-universe {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        #universe-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        #project-info {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 1000px;
+            background: rgba(46, 46, 46, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.5s ease;
+            opacity: 0;
+            z-index: 20;
+        }
+
+        #project-info.active {
+            opacity: 1;
+        }
+
+        #project-title {
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        #project-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .project-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .metric {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-color);
+        }
+
+        .metric i {
+            font-size: 1.5rem;
+        }
+
+        #project-details-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        #project-details-btn:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        #project-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #project-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: rgba(46, 46, 46, 0.9);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></head>
+<body>
+    <div id="project-universe"></div>
+    <div id="universe-overlay"></div>
+    <div id="project-info">
+        <h2 id="project-title">Project Universe</h2>
+        <p id="project-description">Explore our transformative technological innovations</p>
+        <div class="project-metrics">
+            <div class="metric">
+                <i class="fas fa-chart-line"></i>
+                <span>Impact Metrics</span>
+            </div>
+            <div class="metric">
+                <i class="fas fa-rocket"></i>
+                <span>Innovation Level</span>
+            </div>
+        </div>
+        <a href="#" id="project-details-btn">Explore Details</a>
+    </div>
+
+    <div id="project-modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="modal-project-details"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        class ProjectUniverse {
+            constructor() {
+                this.scene = new THREE.Scene();
+                this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+                document.getElementById('project-universe').appendChild(this.renderer.domElement);
+
+                this.projects = [
+                    {
+                        name: 'AI Analytics Platform',
+                        description: 'Revolutionizing data intelligence with advanced machine learning algorithms',
+                        technologies: ['TensorFlow', 'Python', 'AWS SageMaker'],
+                        metrics: {
+                            accuracy: '95%',
+                            processingSpeed: 'Real-time',
+                            impact: 'Transformed 50+ enterprises'
+                        },
+                        color: 0x2E8B57,
+                        details: `
+                            <div class="project-detail-section">
+                                <h2>AI Analytics Platform</h2>
+                                <div class="project-detail-grid">
+                                    <div class="project-detail-column">
+                                        <h3>Project Overview</h3>
+                                        <p>A cutting-edge machine learning platform that transforms complex data into actionable business insights. By leveraging advanced AI algorithms, we enable businesses to predict market trends, optimize strategies, and make data-driven decisions with unprecedented accuracy.</p>
+                                    </div>
+                                    <div class="project-detail-column">
+                                        <h3>Key Technologies</h3>
+                                        <ul>
+                                            <li>TensorFlow</li>
+                                            <li>Python</li>
+                                            <li>Scikit-learn</li>
+                                            <li>Pandas</li>
+                                            <li>AWS SageMaker</li>
+                                        </ul>
+                                    </div>
+                                    <div class="project-detail-column">
+                                        <h3>Key Achievements</h3>
+                                        <ul>
+                                            <li>95% Predictive Accuracy</li>
+                                            <li>Real-time Data Processing</li>
+                                            <li>Reduced Decision-Making Time by 60%</li>
+                                            <li>Scalable Microservices Architecture</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    },
+                    {
+                        name: 'Cloud Transformation',
+                        description: 'Seamless enterprise cloud migration with cutting-edge containerization',
+                        technologies: ['Kubernetes', 'Docker', 'AWS EKS'],
+                        metrics: {
+                            uptime: '99.99%',
+                            costReduction: '40%',
+                            scalability: 'Infinite'
+                        },
+                        color: 0xD2691E,
+                        details: `
+                            <div class="project-detail-section">
+                                <h2>Enterprise Cloud Transformation</h2>
+                                <div class="project-detail-grid">
+                                    <div class="project-detail-column">
+                                        <h3>Project Overview</h3>
+                                        <p>A comprehensive cloud migration strategy that seamlessly transitions enterprise infrastructure to a scalable, secure, and efficient cloud environment. By utilizing state-of-the-art containerization and orchestration technologies, we enable businesses to achieve unprecedented operational flexibility and cost-effectiveness.</p>
+                                    </div>
+                                    <div class="project-detail-column">
+                                        <h3>Key Technologies</h3>
+                                        <ul>
+                                            <li>Kubernetes</li>
+                                            <li>Docker</li>
+                                            <li>Terraform</li>
+                                            <li>AWS EKS</li>
+                                            <li>Jenkins</li>
+                                        </ul>
+                                    </div>
+                                    <div class="project-detail-column">
+                                        <h3>Key Achievements</h3>
+                                        <ul>
+                                            <li>99.99% Infrastructure Uptime</li>
+                                            <li>40% Cost Reduction</li>
+                                            <li>Improved Deployment Speed</li>
+                                            <li>Enhanced Security Protocols</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                    }
+                ];
+
+                this.currentProjectIndex = 0;
+                this.projectNodes = [];
+                this.animationQueue = [];
+
+                this.initScene();
+                this.createProjectNodes();
+                this.createParticleSystem();
+                this.setupInteractions();
+                this.setupSoundEffects();
+                this.animate();
+            }
+
+            initScene() {
+                this.camera.position.z = 5;
+                this.scene.background = new THREE.Color(0x1A1A1A);
+
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                this.scene.add(ambientLight);
+
+                const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+                pointLight.position.set(10, 10, 10);
+                this.scene.add(pointLight);
+            }
+
+            createProjectNodes() {
+                this.projects.forEach((project, index) => {
+                    const geometry = new THREE.SphereGeometry(0.5, 32, 32);
+                    const material = new THREE.MeshPhongMaterial({ 
+                        color: project.color, 
+                        emissive: project.color, 
+                        emissiveIntensity: 0.5 
+                    });
+                    const sphere = new THREE.Mesh(geometry, material);
+
+                    const angle = (index / this.projects.length) * Math.PI * 2;
+                    sphere.position.x = Math.cos(angle) * 3;
+                    sphere.position.y = Math.sin(angle) * 3;
+                    sphere.position.z = Math.random() * 2 - 1;
+
+                    sphere.userData = { ...project, index };
+                    this.scene.add(sphere);
+                    this.projectNodes.push(sphere);
+
+                    // Create connecting lines between nodes
+                    project.technologies.forEach((tech, techIndex) => {
+                        const lineGeometry = new THREE.BufferGeometry().setFromPoints([
+                            sphere.position, 
+                            new THREE.Vector3(
+                                sphere.position.x + Math.random() - 0.5, 
+                                sphere.position.y + Math.random() - 0.5, 
+                                sphere.position.z + Math.random() - 0.5
+                            )
+                        ]);
+                        const lineMaterial = new THREE.LineBasicMaterial({ 
+                            color: project.color, 
+                            transparent: true, 
+                            opacity: 0.3 
+                        });
+                        const line = new THREE.Line(lineGeometry, lineMaterial);
+                        this.scene.add(line);
+                    });
+                });
+            }
+
+            createParticleSystem() {
+                const particlesGeometry = new THREE.BufferGeometry();
+                const particlesCount = 5000;
+                const posArray = new Float32Array(particlesCount * 3);
+
+                for (let i = 0; i < particlesCount * 3; i++) {
+                    posArray[i] = (Math.random() - 0.5) * 20;
+                }
+
+                particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+                const particlesMaterial = new THREE.PointsMaterial({
+                    size: 0.005,
+                    color: 0xffffff,
+                    transparent: true,
+                    opacity: 0.5
+                });
+
+                const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+                this.scene.add(particlesMesh);
+
+                // Animate particles
+                const animateParticles = () => {
+                    particlesMesh.rotation.x += 0.0005;
+                    particlesMesh.rotation.y += 0.0005;
+                };
+
+                this.animationQueue.push(animateParticles);
+            }
+
+            setupInteractions() {
+                const raycaster = new THREE.Raycaster();
+                const mouse = new THREE.Vector2();
+                const projectTitle = document.getElementById('project-title');
+                const projectDescription = document.getElementById('project-description');
+                const projectDetailsBtn = document.getElementById('project-details-btn');
+                const projectModal = document.getElementById('project-modal');
+                const modalProjectDetails = document.getElementById('modal-project-details');
+                const modalCloseBtn = document.querySelector('.modal-close');
+
+                window.addEventListener('mousemove', (event) => {
+                    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+                    raycaster.setFromCamera(mouse, this.camera);
+                    const intersects = raycaster.intersectObjects(this.projectNodes);
+
+                    if (intersects.length > 0) {
+                        const selectedProject = intersects[0].object.userData;
+                        this.currentProjectIndex = selectedProject.index;
+                        
+                        projectTitle.textContent = selectedProject.name;
+                        projectDescription.textContent = selectedProject.description;
+                        
+                        projectDetailsBtn.onclick = () => {
+                            modalProjectDetails.innerHTML = selectedProject.details;
+                            projectModal.classList.add('show');
+                        };
+                    }
+                });
+
+                modalCloseBtn.addEventListener('click', () => {
+                    projectModal.classList.remove('show');
+                });
+
+                projectModal.addEventListener('click', (e) => {
+                    if (e.target === projectModal) {
+                        projectModal.classList.remove('show');
+                    }
+                });
+
+                window.addEventListener('resize', () => {
+                    this.camera.aspect = window.innerWidth / window.innerHeight;
+                    this.camera.updateProjectionMatrix();
+                    this.renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+            }
+
+            setupSoundEffects() {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                const createOscillator = (frequency, type = 'sine') => {
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+
+                    oscillator.type = type;
+                    oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+                    
+                    gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+
+                    return { oscillator, gainNode };
+                };
+
+                const projectNodes = this.projectNodes;
+                
+                projectNodes.forEach(node => {
+                    node.addEventListener('mouseenter', () => {
+                        const { oscillator, gainNode } = createOscillator(220 + Math.random() * 100, 'triangle');
+                        
+                        oscillator.start();
+                        gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + 0.1);
+                        
+                        setTimeout(() => {
+                            gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.5);
+                            oscillator.stop(audioContext.currentTime + 0.5);
+                        }, 200);
+                    });
+                });
+            }
+
+            animate() {
+                requestAnimationFrame(() => this.animate());
+                
+                // Run all animation functions in the queue
+                this.animationQueue.forEach(animFunc => animFunc());
+
+                this.projectNodes.forEach(node => {
+                    node.rotation.x += 0.005;
+                    node.rotation.y += 0.005;
+                });
+
+                this.renderer.render(this.scene, this.camera);
+            }
+        }
+
+        window.addEventListener('load', () => {
+            new ProjectUniverse();
+        });
+    </script>
+<script src="navigation.js"></script><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script></body>
+</html>
+

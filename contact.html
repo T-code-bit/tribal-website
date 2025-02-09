@@ -1,0 +1,886 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Tribal Technologies | Contact Us</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'>
+    <link rel='stylesheet' href='style.css'>
+    <style>
+        /* Restore original spacing and layout */
+        :root {
+            --bg-dark: #121212;
+            --bg-medium: #1e1e1e;
+            --bg-light: #2c2c2c;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --accent-color: #4a90e2;
+            --accent-hover: #3a7bd5;
+        }
+        
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Inter', 'Arial', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--bg-medium) 0%, var(--bg-dark) 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transform: rotateX(10deg);
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74,144,226,0.1) 0%, transparent 70%);
+            animation: pulse 10s infinite alternate;
+            z-index: 1;
+        }
+        
+        .page-header h1 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 15px rgba(74,144,226,0.5);
+        }
+        
+        .page-header p {
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-section {
+            background-color: var(--bg-medium);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .contact-card {
+            background-color: var(--bg-light);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: perspective(1000px) rotateX(10deg);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74,144,226,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .contact-card:hover::before {
+            opacity: 1;
+        }
+        
+        .contact-card:hover {
+            transform: perspective(1000px) rotateX(0) scale(1.05);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.4);
+        }
+        
+        .contact-card i {
+            color: var(--accent-color);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(74,144,226,0.3);
+        }
+        
+        .contact-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        .contact-card .contact-details {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .contact-card .contact-details li {
+            padding: 10px 0;
+            border-top: 1px solid #333;
+            color: var(--text-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card .contact-details li::before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .contact-card .contact-details li:hover::before {
+            left: 100%;
+        }
+        
+        .contact-form {
+            background: linear-gradient(145deg, var(--bg-light) 0%, var(--bg-medium) 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transform: rotateY(10deg);
+        }
+        
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74,144,226,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+        
+        .contact-form:hover::before {
+            opacity: 1;
+        }
+        
+        .contact-form h2 {
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg-dark);
+            border: 2px solid #333;
+            border-radius: 5px;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(74,144,226,0.5);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 5;
+        }
+        
+        .submit-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--accent-hover);
+        }
+        
+        .social-contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 40px;
+            perspective: 1000px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+        }
+        
+        .social-contact a {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            text-decoration: none;
+        }
+        
+        .social-contact a:hover {
+            transform: scale(1.2) rotateY(20deg);
+        }
+        
+        /* Platform-specific hover effects */
+        .social-contact a.linkedin:hover {
+            color: #0077B5;
+            filter: drop-shadow(0 0 15px #0077B5);
+        }
+        
+        .social-contact a.twitter:hover {
+            color: #1DA1F2;
+            filter: drop-shadow(0 0 15px #1DA1F2);
+        }
+        
+        .social-contact a.facebook:hover {
+            color: #3B5998;
+            filter: drop-shadow(0 0 15px #3B5998);
+        }
+        
+        .social-contact a.whatsapp:hover {
+            color: #25D366;
+            filter: drop-shadow(0 0 15px #25D366);
+        }
+        
+        .social-contact a.telegram:hover {
+            color: #0088CC;
+            filter: drop-shadow(0 0 15px #0088CC);
+        }
+        
+        .social-contact a.instagram:hover {
+            color: #E1306C;
+            filter: drop-shadow(0 0 15px #E1306C);
+        }
+        
+        .social-contact a.github:hover {
+            color: #181717;
+            filter: drop-shadow(0 0 15px #181717);
+        }
+        
+        .social-contact a.threads:hover {
+            color: #000000;
+            filter: drop-shadow(0 0 15px #000000);
+        }
+        
+        .social-contact a.tiktok:hover {
+            color: #000000;
+            filter: drop-shadow(0 0 15px #000000);
+        }
+        
+        .platform-label {
+            font-size: 0.8rem;
+            margin-top: 10px;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+        
+        .social-contact a:hover .platform-label {
+            color: inherit;
+        }
+        
+        @media (max-width: 1200px) {
+            .social-contact {
+                gap: 25px;
+            }
+            
+            .social-contact a {
+                font-size: 2.3rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .social-contact {
+                gap: 20px;
+            }
+            
+            .social-contact a {
+                font-size: 2rem;
+            }
+            
+            .platform-label {
+                font-size: 0.7rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .social-contact {
+                gap: 15px;
+            }
+            
+            .social-contact a {
+                font-size: 1.8rem;
+            }
+            
+            .platform-label {
+                font-size: 0.6rem;
+                margin-top: 5px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .social-contact {
+                gap: 10px;
+            }
+            
+            .social-contact a {
+                font-size: 1.5rem;
+            }
+            
+            .platform-label {
+                font-size: 0.5rem;
+            }
+        }
+        
+        .maps-section {
+            background-color: var(--bg-medium);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .maps-section h2 {
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .maps-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: perspective(1000px) rotateX(10deg);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        
+        .maps-container:hover {
+            transform: perspective(1000px) rotateX(0);
+        }
+        
+        .location-map {
+            border-radius: 15px;
+            transition: all 0.5s ease;
+        }
+        
+        .location-gallery {
+            background-color: var(--bg-medium);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .location-gallery h2 {
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(10deg);
+        }
+        
+        .gallery-item:hover {
+            transform: perspective(1000px) rotateX(0) scale(1.05);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.4);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Location Pin Styles */
+        .location-pin {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50% 50% 0;
+            transform: rotate(45deg);
+            z-index: 1000;
+            pointer-events: none;
+        }
+        
+        @keyframes pin-glow {
+            from {
+                box-shadow: 
+                    0 0 3px rgba(255, 51, 51, 0.3),
+                    0 0 6px rgba(255, 51, 51, 0.2),
+                    0 0 9px rgba(255, 51, 51, 0.1);
+            }
+            to {
+                box-shadow: 
+                    0 0 7px rgba(255, 51, 51, 0.5),
+                    0 0 12px rgba(255, 51, 51, 0.3),
+                    0 0 18px rgba(255, 51, 51, 0.2);
+            }
+        }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></head>
+<body>
+    <header class='main-header'>
+        <div class='container'>
+            <nav class='main-nav'>
+                <div class='logo'>
+                    <h1>Tribal Technologies</h1>
+                </div>
+                <ul class='nav-links'>
+                    <li><a href='index.html'>Home</a></li>
+                    <li><a href='services.html'>Services</a></li>
+                    <li><a href='solutions.html'>Solutions</a></li>
+                    <li><a href='technologies.html'>Technologies</a></li>
+                    <li><a href='contact.html'>Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class='page-header'>
+            <div class='container'>
+                <h1>Connect with Tribal Technologies</h1>
+                <p>Transforming Ideas into Technological Innovations</p>
+            </div>
+        </section>
+
+        <section class='contact-section container'>
+            <div class='contact-grid'>
+                <div class='contact-card'>
+                    <i class='fas fa-envelope-open-text'></i>
+                    <h3>Email Communication</h3>
+                    <p>Instant digital connectivity</p>
+                    <ul class='contact-details'>
+                        <li>hello@tribaltechnologies.com</li>
+                        <li>support@tribaltechnologies.com</li>
+                        <li>partnerships@tribaltechnologies.com</li>
+                    </ul>
+                </div>
+                <div class='contact-card'>
+                    <i class='fas fa-globe-americas'></i>
+                    <h3>Global Presence</h3>
+                    <p>Worldwide technological support</p>
+                    <ul class='contact-details'>
+                        <li>+1 (555) 123-4567 (US)</li>
+                        <li>+44 (20) 7123-4567 (UK)</li>
+                        <li>+91 (11) 4567-8901 (India)</li>
+                    </ul>
+                </div>
+                <div class='contact-card'>
+                    <i class='fas fa-map-marked-alt'></i>
+                    <h3>Office Locations</h3>
+                    <p>Strategic global positioning</p>
+                    <ul class='contact-details'>
+                        <li>San Francisco, CA, USA</li>
+                        <li>London, United Kingdom</li>
+                        <li>Bangalore, India</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class='maps-section'>
+                <h2>Our Location</h2>
+                <div class='maps-container'>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7598269817157!2d35.26833367479897!3d0.5144324964017637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1787b7b8d3a5c6c3%3A0x1d7c0d01d946f523!2sSirikwa%20Hotel!5e0!3m2!1sen!2ske!4v1707145382385!5m2!1sen!2ske&zoom=18&maptype=satellite" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="location-map">
+                    </iframe>
+                    <div class='location-pin'></div>
+                </div>
+            </div>
+
+            <div class='location-gallery'>
+                <h2>Our Neighborhood</h2>
+                <div class='gallery-container'>
+                    <div class='gallery-grid'>
+                        <div class='gallery-item'>
+                            <img src='https://via.placeholder.com/400x300?text=Komora+Building+Exterior' alt='Komora Building Exterior'>
+                        </div>
+                        <div class='gallery-item'>
+                            <img src='https://via.placeholder.com/400x300?text=Surrounding+Buildings' alt='Surrounding Buildings'>
+                        </div>
+                        <div class='gallery-item'>
+                            <img src='https://via.placeholder.com/400x300?text=Eldoret+Street+View' alt='Eldoret Street View'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='contact-form'>
+                <h2>Initiate Your Project Journey</h2>
+                <form id='contactForm' action="https://formspree.io/f/xnnjzqdr" method="POST">
+                    <div class='form-group'>
+                        <label for='name'>Full Name</label>
+                        <input type='text' id='name' name='name' placeholder='Your Full Name' required>
+                    </div>
+                    <div class='form-group'>
+                        <label for='email'>Email Address</label>
+                        <input type='email' id='email' name='email' placeholder='your.email@example.com' required>
+                    </div>
+                    <div class='form-group'>
+                        <label for='subject'>Project Subject</label>
+                        <input type='text' id='subject' name='subject' placeholder='Brief project description' required>
+                    </div>
+                    <div class='form-group'>
+                        <label for='message'>Project Details</label>
+                        <textarea id='message' name='message' required placeholder='Provide detailed information about your project...'></textarea>
+                    </div>
+                    <input type="hidden" name="_next" value="https://tribaltechnologies.com/thank-you.html">
+                    <input type="hidden" name="_subject" value="New Project Inquiry from Website">
+                    <button type='submit' class='submit-btn'>Launch Your Vision</button>
+                </form>
+            </div>
+
+            <!-- Comprehensive Social Media Section -->
+            <div class='social-contact'>
+                <!-- Professional Networking -->
+                <div class='social-item'>
+                    <a href='https://www.linkedin.com/company/tribal-technologies' target='_blank' title='LinkedIn' class="linkedin">
+                        <i class='fab fa-linkedin'></i>
+                        <span class='platform-label'>LinkedIn</span>
+                    </a>
+                </div>
+                <div class='social-item'>
+                    <a href='https://www.crunchbase.com/organization/tribal-technologies' target='_blank' title='Crunchbase'>
+                        <i class='fas fa-chart-line'></i>
+                        <span class='platform-label'>Crunchbase</span>
+                    </a>
+                </div>
+                
+                <!-- Business Communication -->
+                <div class='social-item'>
+                    <a href='https://twitter.com/tribaltechke' target='_blank' title='Twitter' class="twitter">
+                        <i class='fab fa-twitter'></i>
+                        <span class='platform-label'>Twitter</span>
+                    </a>
+                </div>
+                <div class='social-item'>
+                    <a href='https://www.facebook.com/tribaltechnologies' target='_blank' title='Facebook' class="facebook">
+                        <i class='fab fa-facebook'></i>
+                        <span class='platform-label'>Facebook</span>
+                    </a>
+                </div>
+                
+                <!-- Messaging & Communication -->
+                <div class='social-item'>
+                    <a href='https://wa.me/+254700000000' target='_blank' title='WhatsApp' class="whatsapp">
+                        <i class='fab fa-whatsapp'></i>
+                        <span class='platform-label'>WhatsApp</span>
+                    </a>
+                </div>
+                <div class='social-item'>
+                    <a href='https://t.me/tribaltechnologies' target='_blank' title='Telegram' class="telegram">
+                        <i class='fab fa-telegram'></i>
+                        <span class='platform-label'>Telegram</span>
+                    </a>
+                </div>
+                <div class='social-item'>
+                    <a href='https://signal.me/#p/tribaltechnologies' target='_blank' title='Signal'>
+                        <i class='fab fa-signal'></i>
+                        <span class='platform-label'>Signal</span>
+                    </a>
+                </div>
+                
+                <!-- Visual Platforms -->
+                <div class='social-item'>
+                    <a href='https://www.instagram.com/tribaltechnologies' target='_blank' title='Instagram' class="instagram">
+                        <i class='fab fa-instagram'></i>
+                        <span class='platform-label'>Instagram</span>
+                    </a>
+                </div>
+                <div class='social-item'>
+                    <a href='https://www.threads.net/@tribaltechnologies' target='_blank' title='Threads' class="threads">
+                        <i class='fab fa-threads'></i>
+                        <span class='platform-label'>Threads</span>
+                    </a>
+                </div>
+                <div class='social-item'>
+                    <a href='https://www.tiktok.com/@tribaltechnologies' target='_blank' title='TikTok' class="tiktok">
+                        <i class='fab fa-tiktok'></i>
+                        <span class='platform-label'>TikTok</span>
+                    </a>
+                </div>
+                
+                <!-- Developer & Tech Platforms -->
+                <div class='social-item'>
+                    <a href='https://github.com/tribaltechnologies' target='_blank' title='GitHub' class="github">
+                        <i class='fab fa-github'></i>
+                        <span class='platform-label'>GitHub</span>
+                    </a>
+                </div>
+                <div class='social-item'>
+                    <a href='https://gitlab.com/tribaltechnologies' target='_blank' title='GitLab'>
+                        <i class='fab fa-gitlab'></i>
+                        <span class='platform-label'>GitLab</span>
+                    </a>
+                </div>
+                <div class='social-item'>
+                    <a href='https://stackoverflow.com/companies/tribal-technologies' target='_blank' title='Stack Overflow'>
+                        <i class='fab fa-stack-overflow'></i>
+                        <span class='platform-label'>Stack Overflow</span>
+                    </a>
+                </div>
+                
+                <!-- Professional Content Platforms -->
+                <div class='social-item'>
+                    <a href='https://medium.com/@tribaltechnologies' target='_blank' title='Medium'>
+                        <i class='fab fa-medium'></i>
+                        <span class='platform-label'>Medium</span>
+                    </a>
+                </div>
+                <div class='social-item'>
+                    <a href='https://dev.to/tribaltechnologies' target='_blank' title='Dev.to'>
+                        <i class='fab fa-dev'></i>
+                        <span class='platform-label'>Dev.to</span>
+                    </a>
+                </div>
+                
+                <!-- Emerging & Niche Platforms -->
+                <div class='social-item'>
+                    <a href='https://dribbble.com/tribaltechnologies' target='_blank' title='Dribbble'>
+                        <i class='fab fa-dribbble'></i>
+                        <span class='platform-label'>Dribbble</span>
+                    </a>
+                </div>
+                <div class='social-item'>
+                    <a href='https://behance.net/tribaltechnologies' target='_blank' title='Behance'>
+                        <i class='fab fa-behance'></i>
+                        <span class='platform-label'>Behance</span>
+                    </a>
+                </div>
+                <div class='social-item'>
+                    <a href='https://www.producthunt.com/@tribaltechnologies' target='_blank' title='Product Hunt'>
+                        <i class='fas fa-rocket'></i>
+                        <span class='platform-label'>Product Hunt</span>
+                    </a>
+                </div>
+                
+                <!-- Professional Video Platforms -->
+                <div class='social-item'>
+                    <a href='https://www.youtube.com/c/tribaltechnologies' target='_blank' title='YouTube'>
+                        <i class='fab fa-youtube'></i>
+                        <span class='platform-label'>YouTube</span>
+                    </a>
+                </div>
+                <div class='social-item'>
+                    <a href='https://vimeo.com/tribaltechnologies' target='_blank' title='Vimeo'>
+                        <i class='fab fa-vimeo'></i>
+                        <span class='platform-label'>Vimeo</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class='main-footer'>
+        <div class='container'>
+            <div class='footer-content'>
+                <p>&copy; 2025 Tribal Technologies. All Rights Reserved.</p>
+                <div class='social-links'>
+                    <a href='#' class='social-icon'><i class='fab fa-github'></i></a>
+                    <a href='#' class='social-icon'><i class='fab fa-linkedin'></i></a>
+                    <a href='#' class='social-icon'><i class='fab fa-twitter'></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src='script.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+    <script>
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    Swal.fire({
+                        title: 'Message Sent!',
+                        html: `
+                            <div style="color: #e0e0e0;">
+                                <p>Thank you for your message!</p>
+                                <p>We'll review your project and get back to you soon.</p>
+                            </div>
+                        `,
+                        icon: 'success',
+                        confirmButtonText: 'Awesome!',
+                        background: '#2c2c2c',
+                        color: '#e0e0e0'
+                    });
+                    form.reset();
+                } else {
+                    Swal.fire({
+                        title: 'Submission Error',
+                        text: 'There was a problem sending your message. Please try again.',
+                        icon: 'error',
+                        background: '#2c2c2c',
+                        color: '#e0e0e0'
+                    });
+                }
+            }).catch(error => {
+                Swal.fire({
+                    title: 'Network Error',
+                    text: 'Could not send message. Please check your internet connection.',
+                    icon: 'error',
+                    background: '#2c2c2c',
+                    color: '#e0e0e0'
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pin = document.querySelector('.location-pin');
+            const iframe = document.querySelector('.location-map');
+            
+            function positionPin() {
+                const rect = iframe.getBoundingClientRect();
+                pin.style.position = 'fixed';
+                pin.style.left = `${rect.left + rect.width * 0.55}px`;
+                pin.style.top = `${rect.top + rect.height * 0.4}px`;
+            }
+            
+            // Position on load and resize
+            positionPin();
+            window.addEventListener('resize', positionPin);
+        });
+    </script>
+<script src="navigation.js"></script><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script></body>
+</html>
+

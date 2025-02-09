@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>Tribal Technologies - Tech Constellation</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #1A1A1A;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        #tech-constellation {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        #tech-info-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(30, 30, 30, 0.8);
+            color: #F4E1D2;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 600px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        #tech-info-title {
+            color: #D2691E;
+            margin-bottom: 10px;
+        }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></head>
+<body>
+    <div id="tech-constellation"></div>
+    <div id="tech-info-panel">
+        <h3 id="tech-info-title">Tribal Technologies Constellation</h3>
+        <p id="tech-info-description">Explore our interconnected technological universe</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        class TechConstellation {
+            constructor() {
+                this.scene = new THREE.Scene();
+                this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+                document.getElementById('tech-constellation').appendChild(this.renderer.domElement);
+
+                this.technologies = [
+                    { name: 'Frontend', category: 'Web', technologies: ['React', 'Vue', 'Angular'], color: 0x2E8B57 },
+                    { name: 'Backend', category: 'Server', technologies: ['Python', 'Node.js', 'Java'], color: 0x8B4513 },
+                    { name: 'Cloud', category: 'Infrastructure', technologies: ['AWS', 'Azure', 'GCP'], color: 0xD2691E },
+                    { name: 'AI/ML', category: 'Intelligence', technologies: ['TensorFlow', 'PyTorch', 'Keras'], color: 0x4169E1 },
+                    { name: 'DevOps', category: 'Deployment', technologies: ['Docker', 'Kubernetes', 'Jenkins'], color: 0x9932CC }
+                ];
+
+                this.createConstellation();
+                this.animateConstellation();
+                this.addInteractivity();
+            }
+
+            createConstellation() {
+                this.camera.position.z = 5;
+                this.scene.background = new THREE.Color(0x1A1A1A);
+
+                this.technologies.forEach((tech, index) => {
+                    const geometry = new THREE.SphereGeometry(0.5, 32, 32);
+                    const material = new THREE.MeshPhongMaterial({ 
+                        color: tech.color, 
+                        emissive: tech.color, 
+                        emissiveIntensity: 0.5 
+                    });
+                    const sphere = new THREE.Mesh(geometry, material);
+
+                    const angle = (index / this.technologies.length) * Math.PI * 2;
+                    sphere.position.x = Math.cos(angle) * 3;
+                    sphere.position.y = Math.sin(angle) * 3;
+                    sphere.position.z = Math.random() * 2 - 1;
+
+                    sphere.userData = tech;
+                    this.scene.add(sphere);
+
+                    // Add connecting lines
+                    tech.technologies.forEach((subTech, subIndex) => {
+                        const lineGeometry = new THREE.BufferGeometry().setFromPoints([
+                            sphere.position, 
+                            new THREE.Vector3(
+                                sphere.position.x + Math.random() - 0.5, 
+                                sphere.position.y + Math.random() - 0.5, 
+                                sphere.position.z + Math.random() - 0.5
+                            )
+                        ]);
+                        const lineMaterial = new THREE.LineBasicMaterial({ 
+                            color: tech.color, 
+                            transparent: true, 
+                            opacity: 0.3 
+                        });
+                        const line = new THREE.Line(lineGeometry, lineMaterial);
+                        this.scene.add(line);
+                    });
+                });
+
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                this.scene.add(ambientLight);
+
+                const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+                pointLight.position.set(10, 10, 10);
+                this.scene.add(pointLight);
+            }
+
+            animateConstellation() {
+                const animate = () => {
+                    requestAnimationFrame(animate);
+                    this.scene.children.forEach(child => {
+                        if (child instanceof THREE.Mesh) {
+                            child.rotation.x += 0.005;
+                            child.rotation.y += 0.005;
+                        }
+                    });
+                    this.renderer.render(this.scene, this.camera);
+                };
+                animate();
+            }
+
+            addInteractivity() {
+                const raycaster = new THREE.Raycaster();
+                const mouse = new THREE.Vector2();
+                const infoTitle = document.getElementById('tech-info-title');
+                const infoDescription = document.getElementById('tech-info-description');
+
+                window.addEventListener('mousemove', (event) => {
+                    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+                    raycaster.setFromCamera(mouse, this.camera);
+                    const intersects = raycaster.intersectObjects(this.scene.children);
+
+                    if (intersects.length > 0) {
+                        const selectedObject = intersects[0].object;
+                        if (selectedObject.userData && selectedObject.userData.name) {
+                            infoTitle.textContent = selectedObject.userData.name;
+                            infoDescription.textContent = `Category: ${selectedObject.userData.category}. Technologies: ${selectedObject.userData.technologies.join(', ')}`;
+                        }
+                    } else {
+                        infoTitle.textContent = 'Tribal Technologies Constellation';
+                        infoDescription.textContent = 'Explore our interconnected technological universe';
+                    }
+                });
+
+                window.addEventListener('resize', () => {
+                    this.camera.aspect = window.innerWidth / window.innerHeight;
+                    this.camera.updateProjectionMatrix();
+                    this.renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+            }
+        }
+
+        // Initialize the constellation when the page loads
+        window.addEventListener('load', () => {
+            new TechConstellation();
+        });
+    </script>
+<script src="navigation.js"></script><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script><div id="screen-reader-announcer" class="sr-only" aria-live="polite"></div><script src="navigation.js"></script></body>
+</html>
+

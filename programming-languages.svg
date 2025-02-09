@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="langGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c2c2c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e1e1e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#langGrad)" rx="15"/>
+  <g transform="translate(50, 50) scale(0.6)">
+    <path d="M50 20 L20 50 L50 80 Z" fill="#4a90e2"/>
+    <path d="M100 20 L70 50 L100 80 Z" fill="#b0b0b0"/>
+    <path d="M150 20 L120 50 L150 80 Z" fill="#e0e0e0"/>
+    <text x="35" y="120" fill="#4a90e2" font-size="20">Py</text>
+    <text x="85" y="120" fill="#b0b0b0" font-size="20">JS</text>
+    <text x="135" y="120" fill="#e0e0e0" font-size="20">TS</text>
+  </g>
+</svg>
